@@ -2,14 +2,18 @@ angular.module \main, <[]>
   ..controller \main, <[$scope $timeout $interval]> ++ ($scope, $timeout, $interval) ->
     $scope <<< do
       hint: false
-      choose: true
+      stage: \judge
       rlt: h: <[0 p5 p6 p7 p8 p9]>, c: 5
 
       choosehead: (d) ->
         $scope.rlt.c += d
-        $scope.rlt.c >?= 0
+        $scope.rlt.c >?= 1
         $scope.rlt.c <?= 5
-        $scope.rlt.h = ["p#{v + $scope.rlt.c}" for v from -1 to 4]
+    $scope.$watch 'rlt.c' ->
+      $scope.rlt.h = ["p#{v + $scope.rlt.c}" for v from -1 to 4]
+      $scope.rlt.b = "p#{6 - $scope.rlt.c}"
+    $scope.$watch 'choose' ->
+      setTimeout (-> $(window)scrollTop \500), 100
 
     win = $(window)
     ld-tt = $(\#ld-tt)

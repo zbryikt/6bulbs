@@ -30,7 +30,7 @@ body {
     -webkit-transition: opacity 0.2s linear;
     -o-transition: opacity 0.2s linear;
     transition: opacity 0.2s linear;
-    z-index: 5;
+    z-index: 6;
     opacity: 1; }
 
 #hint-inner {
@@ -44,7 +44,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 4;
+  z-index: 5;
   background: url(img/land-bk.png) center center no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -105,7 +105,7 @@ body {
 
 #cs-menu {
   position: fixed;
-  z-index: 3;
+  z-index: 4;
   top: 0;
   left: 0;
   background: #000;
@@ -157,10 +157,20 @@ body {
   height: 100%;
   color: #fff;
   z-index: 2;
+  -ms-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  opacity: 1;
   background: url(img/land-bk.png) center center no-repeat;
   background-size: cover;
   width: 100%;
   height: 100%; }
+  #choose.inactive {
+    left: -100px;
+    opacity: 0;
+    z-index: 1; }
   #choose img {
     position: absolute;
     width: 100px; }
@@ -177,10 +187,16 @@ body {
     left: 50%;
     width: 90px;
     height: 100px;
+    cursor: pointer;
     background-size: cover;
     background-position: 0 center;
     background-repeat: no-repeat;
-    background-image: url(img/heads.png); }
+    background-image: url(img/heads.png);
+    -ms-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; }
   #choose #cs-rlt .p1 {
     margin: -100px 0 0 -250px;
     -ms-transform: scale(0.4);
@@ -214,7 +230,7 @@ body {
     transform: scale(1);
     z-index: 8; }
   #choose #cs-rlt .p5 {
-    margin: 10px 0 0 -50px;
+    margin: -100px 0 0 -50px;
     -ms-transform: scale(1.2);
     -moz-transform: scale(1.2);
     -webkit-transform: scale(1.2);
@@ -291,10 +307,36 @@ body {
     width: 100%;
     height: 100%;
     background: url(img/choose.png) -600px center no-repeat;
-    background-size: cover; }
+    background-size: cover;
+    -ms-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; }
     @media (max-width: 991px) {
       #choose #cs-box-inner {
         background-position: -400px center; } }
+    #choose #cs-box-inner.p1 {
+      background-position: -600px center; }
+    #choose #cs-box-inner.p2 {
+      background-position: -900px center; }
+    #choose #cs-box-inner.p3 {
+      background-position: -1200px center; }
+    #choose #cs-box-inner.p4 {
+      background-position: -1500px center; }
+    #choose #cs-box-inner.p5 {
+      background-position: -1800px center; }
+    @media (max-width: 991px) {
+      #choose #cs-box-inner.p1 {
+        background-position: -400px center; }
+      #choose #cs-box-inner.p2 {
+        background-position: -600px center; }
+      #choose #cs-box-inner.p3 {
+        background-position: -800px center; }
+      #choose #cs-box-inner.p4 {
+        background-position: -1000px center; }
+      #choose #cs-box-inner.p5 {
+        background-position: -1200px center; } }
   #choose #cs-btn {
     position: absolute;
     width: 100%;
@@ -324,3 +366,119 @@ body {
     background-position: -390px center; }
   #choose #cs-gr.active, #choose #cs-gr:hover {
     background-position: -585px center; }
+  @media (max-width: 991px) {
+    #choose #cs-gl, #choose #cs-gr {
+      width: 122px;
+      height: 100px; }
+    #choose #cs-gl {
+      background-position: -122px center; }
+    #choose #cs-gl.active, #choose #cs-gl:hover {
+      background-position: 0 center; }
+    #choose #cs-gr {
+      background-position: -244px center; }
+    #choose #cs-gr.active, #choose #cs-gr:hover {
+      background-position: -366px center; } }
+
+#judge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 3; }
+
+#court {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -190px;
+  width: 380px;
+  height: 670px;
+  background: url(img/court2.png) center center no-repeat;
+  background-size: contain; }
+  #court #jc-h {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -95px 0 0 -68px;
+    width: 136px;
+    height: 150px;
+    background: url(img/heads.png) center center no-repeat;
+    background-size: cover; }
+    #court #jc-h.p1 {
+      background-position: 0 center; }
+    #court #jc-h.p2 {
+      background-position: -136px center; }
+    #court #jc-h.p3 {
+      background-position: -272px center; }
+    #court #jc-h.p4 {
+      background-position: -408px center; }
+    #court #jc-h.p5 {
+      background-position: -444px center; }
+  #court .bulb {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 39px;
+    height: 60px;
+    background: url(img/bulbs.png) 0 center no-repeat;
+    background-size: cover; }
+  #court #bulb1 {
+    margin-left: 44px;
+    margin-top: -164px; }
+  #court #bulb2 {
+    margin-left: 116px;
+    margin-top: -38px; }
+  #court #bulb3 {
+    margin-left: 44px;
+    margin-top: 88px; }
+  #court #bulb4 {
+    margin-left: -83px;
+    margin-top: 88px; }
+  #court #bulb5 {
+    margin-left: -155px;
+    margin-top: -38px; }
+  #court #bulb6 {
+    margin-left: -83px;
+    margin-top: -164px; }
+
+#judge .sent {
+  position: absolute; }
+#judge .sent .title {
+  font-size: 2.2em;
+  margin-bottom: 10px;
+  text-align: center; }
+
+#jg-sent1 {
+  top: 100px;
+  width: 34%;
+  margin-left: 2%; }
+
+#jg-sent2 {
+  top: 100px;
+  width: 34%;
+  margin-left: 64%; }
+
+#jg-sentl, #jg-sentr {
+  width: 230px;
+  height: 150px;
+  position: absolute;
+  background: url(img/score-btn.png) 0 center no-repeat;
+  background-size: cover;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -115px;
+  cursor: pointer; }
+
+#jg-sentl {
+  left: 40%;
+  background-position: -230px center; }
+  #jg-sentl:hover {
+    background-position: 0 center; }
+
+#jg-sentr {
+  left: 60%;
+  background-position: -459px center; }
+  #jg-sentr:hover {
+    background-position: -690px center; }

@@ -5,25 +5,36 @@ x$.controller('main', ['$scope', '$timeout', '$interval'].concat(function($scope
   var win, ldTt, ldB, ldH, ref$, w, h, orientDetect;
   import$($scope, {
     hint: false,
-    choose: true,
+    stage: 'judge',
     rlt: {
       h: ['0', 'p5', 'p6', 'p7', 'p8', 'p9'],
       c: 5
     },
     choosehead: function(d){
-      var ref$, v;
+      var ref$, ref1$;
       $scope.rlt.c += d;
-      (ref$ = $scope.rlt).c >= 0 || (ref$.c = 0);
-      (ref$ = $scope.rlt).c <= 5 || (ref$.c = 5);
-      return $scope.rlt.h = (function(){
-        var i$, results$ = [];
-        for (i$ = -1; i$ <= 4; ++i$) {
-          v = i$;
-          results$.push("p" + (v + $scope.rlt.c));
-        }
-        return results$;
-      }());
+      (ref$ = $scope.rlt).c >= 1 || (ref$.c = 1);
+      return (ref1$ = (ref$ = $scope.rlt).c) <= 5
+        ? ref1$
+        : ref$.c = 5;
     }
+  });
+  $scope.$watch('rlt.c', function(){
+    var v;
+    $scope.rlt.h = (function(){
+      var i$, results$ = [];
+      for (i$ = -1; i$ <= 4; ++i$) {
+        v = i$;
+        results$.push("p" + (v + $scope.rlt.c));
+      }
+      return results$;
+    }());
+    return $scope.rlt.b = "p" + (6 - $scope.rlt.c);
+  });
+  $scope.$watch('choose', function(){
+    return setTimeout(function(){
+      return $(window).scrollTop('500');
+    }, 100);
   });
   win = $(window);
   ldTt = $('#ld-tt');

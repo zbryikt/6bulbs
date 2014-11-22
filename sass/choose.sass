@@ -9,6 +9,12 @@
   height: 100%
   color: #fff
   z-index: index($order, choose)
+  @include transition(all 0.3s ease-out)
+  opacity: 1
+  &.inactive
+    left: -100px
+    opacity: 0
+    z-index: index($order, base)
   img
     position: absolute
     width: 100px
@@ -26,10 +32,12 @@
       left: 50%
       width: 90px
       height: 100px
+      cursor: pointer
       background-size: cover
       background-position: 0 center
       background-repeat: no-repeat
       background-image: url(img/heads.png)
+      @include transition(all 0.3s ease-in-out)
     .p1
       margin: -100px 0 0 -250px
       @include transform(scale(0.4))
@@ -47,7 +55,7 @@
       @include transform(scale(1.0))
       z-index: index($choose-order, p4)
     .p5
-      margin: 10px 0 0 -50px
+      margin: -100px 0 0 -50px
       @include transform(scale(1.2))
       z-index: index($choose-order, p5)
       opacity: 0
@@ -108,8 +116,32 @@
     height: 100%
     background: url(img/choose.png) -600px center no-repeat
     background-size: cover
+    @include transition(all 0.3s ease-in-out)
     @media (max-width: 991px)
       background-position: -400px center
+
+    &.p1
+      background-position: -600px center
+    &.p2
+      background-position: -900px center
+    &.p3
+      background-position: -1200px center
+    &.p4
+      background-position: -1500px center
+    &.p5
+      background-position: -1800px center
+    @media (max-width: 991px)
+      &.p1
+        background-position: -400px center
+      &.p2
+        background-position: -600px center
+      &.p3
+        background-position: -800px center
+      &.p4
+        background-position: -1000px center
+      &.p5
+        background-position: -1200px center
+
   #cs-btn
     position: absolute
     width: 100%
@@ -134,21 +166,15 @@
     background-position: -390px center
   #cs-gr.active, #cs-gr:hover
     background-position: -585px center
-
-  //-#cs-box
-    width: 36%
-    background: rgba(0,0,0,0.5)
-    border-radius: 5px
-    height: 300px
-    .head, .county
-      float: left
-    .button
-      float: right
-    .info
-      margin: 2%
-      float: right
-      width: 40%
-      font-size: 3em
-      border-top: 5px double #fff
-      border-bottom: 5px double #fff
-
+  @media (max-width: 991px)
+    #cs-gl, #cs-gr
+      width: 122px
+      height: 100px
+    #cs-gl
+      background-position: -122px center
+    #cs-gl.active, #cs-gl:hover
+      background-position: 0 center
+    #cs-gr
+      background-position: -244px center
+    #cs-gr.active, #cs-gr:hover
+      background-position: -366px center
