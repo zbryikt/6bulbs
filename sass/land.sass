@@ -1,0 +1,57 @@
+@import basic
+@import vars
+
+#land
+  position: absolute
+  top: 0
+  left: 0
+  z-index: index($order, land)
+  background: url(img/land-bk.png) center center no-repeat
+  background-attachment: fixed
+  background-size: cover
+  width: 100%
+  min-height: 100%
+  opacity: 1
+  @include transition(all 0.3s ease-out)
+  &.inactive
+    left: -100px
+    opacity: 0
+    z-index: index($order, base)
+  #ld-h
+    margin: auto
+    display: block
+    @include transition(all 0.3s ease-out)
+    width: 300px
+    height: 300px
+    opacity: 0
+  #ld-t
+    width: 50%
+    display: block
+    margin: auto
+  #ld-tt
+    width: 50%
+    @media (max-width: 480px), (max-height: 600px)
+      width: 85%
+    font-size: 13px
+    text-align: center
+    display: block
+    margin: auto
+    color: #ccc
+    background: rgba(0,0,0,0.5)
+    padding: 10px
+    border-radius: 5px
+  #ld-b
+    width: 150px
+    height: 150px
+    background: url(img/go.svg) center center no-repeat
+    background-size: contain
+    display: block
+    margin: auto
+    cursor: pointer
+    &:hover
+      background-image: url(img/go-active.svg)
+    &.mobile
+      position: absolute
+      width: 100px
+      height: 100px
+

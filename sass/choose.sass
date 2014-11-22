@@ -1,0 +1,154 @@
+@import basic
+@import vars
+
+#choose
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  color: #fff
+  z-index: index($order, choose)
+  img
+    position: absolute
+    width: 100px
+  #cs-rlt
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: index($choose-order, rlt)
+  #cs-rlt 
+    .head
+      position: absolute
+      top: 50%
+      left: 50%
+      width: 90px
+      height: 100px
+      background-size: cover
+      background-position: 0 center
+      background-repeat: no-repeat
+      background-image: url(img/heads.png)
+    .p1
+      margin: -100px 0 0 -250px
+      @include transform(scale(0.4))
+      z-index: index($choose-order, p1)
+    .p2
+      margin: -75px 0 0 -280px
+      @include transform(scale(0.65))
+      z-index: index($choose-order, p2)
+    .p3
+      margin: -30px 0 0 -300px
+      @include transform(scale(0.8))
+      z-index: index($choose-order, p3)
+    .p4
+      margin: 10px 0 0 -250px
+      @include transform(scale(1.0))
+      z-index: index($choose-order, p4)
+    .p5
+      margin: 10px 0 0 -50px
+      @include transform(scale(1.2))
+      z-index: index($choose-order, p5)
+      opacity: 0
+    .p6
+      margin: 10px 0 0 160px
+      @include transform(scale(1.0))
+      z-index: index($choose-order, p6)
+    .p7
+      margin: -30px 0 0 210px
+      @include transform(scale(0.8))
+      z-index: index($choose-order, p7)
+    .p8
+      margin: -75px 0 0 190px
+      @include transform(scale(0.65))
+      z-index: index($choose-order, p8)
+    .p9
+      margin: -100px 0 0 160px
+      @include transform(scale(0.4))
+      z-index: index($choose-order, p9)
+    .head:nth-of-type(1)
+      background-position: 0 center
+    .head:nth-of-type(2)
+      background-position: -90px center
+    .head:nth-of-type(3)
+      background-position: -180px center
+    .head:nth-of-type(4)
+      background-position: -270px center
+    .head:nth-of-type(5)
+      background-position: -360px center
+  background: url(img/land-bk.png) center center no-repeat
+  background-size: cover
+  width: 100%
+  height: 100%
+  #cs-box
+    position: absolute
+    cursor: pointer
+    top: 50%
+    left: 50%
+    z-index: index($choose-order, cs-box)
+    margin: -150px 0 0 -150px
+    width: 300px
+    height: 300px
+    background: url(img/choose.png) 0 center no-repeat
+    background-size: cover
+    &:hover
+      background-position: -300px center
+    @media (max-width: 991px)
+      width: 200px
+      height: 200px
+      margin: -100px 0 0 -100px
+      &:hover
+        background-position: -200px center
+  #cs-box-inner
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: url(img/choose.png) -600px center no-repeat
+    background-size: cover
+    @media (max-width: 991px)
+      background-position: -400px center
+  #cs-btn
+    position: absolute
+    width: 100%
+    bottom: 20px
+    z-index: index($choose-order, cs-btn)
+    text-align: center
+    @include no-selection
+  #cs-gl, #cs-gr, #cs-gt
+    display: inline-block
+    vertical-align: middle
+  #cs-gl, #cs-gr
+    cursor: pointer
+    width: 195px
+    height: 160px
+    background: url(img/hands.png) 0 center no-repeat
+    background-size: cover
+  #cs-gl
+    background-position: -195px center
+  #cs-gl.active, #cs-gl:hover
+    background-position: 0 center
+  #cs-gr
+    background-position: -390px center
+  #cs-gr.active, #cs-gr:hover
+    background-position: -585px center
+
+  //-#cs-box
+    width: 36%
+    background: rgba(0,0,0,0.5)
+    border-radius: 5px
+    height: 300px
+    .head, .county
+      float: left
+    .button
+      float: right
+    .info
+      margin: 2%
+      float: right
+      width: 40%
+      font-size: 3em
+      border-top: 5px double #fff
+      border-bottom: 5px double #fff
+

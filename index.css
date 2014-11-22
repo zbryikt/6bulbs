@@ -1,0 +1,326 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%; }
+
+body {
+  background: url(img/land-bk.png) center center no-repeat;
+  background-size: cover; }
+
+#hint {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  z-index: 1;
+  background: url(img/land-bk.png) center center no-repeat;
+  background-size: cover;
+  opacity: 0;
+  -ms-transition: opacity 0.2s linear;
+  -moz-transition: opacity 0.2s linear;
+  -webkit-transition: opacity 0.2s linear;
+  -o-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear; }
+  #hint.active {
+    -ms-transition: opacity 0.2s linear;
+    -moz-transition: opacity 0.2s linear;
+    -webkit-transition: opacity 0.2s linear;
+    -o-transition: opacity 0.2s linear;
+    transition: opacity 0.2s linear;
+    z-index: 5;
+    opacity: 1; }
+
+#hint-inner {
+  width: 90%;
+  height: 100%;
+  background: url(img/landscape.png) center center no-repeat;
+  background-size: contain;
+  margin: auto; }
+
+#land {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  background: url(img/land-bk.png) center center no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
+  min-height: 100%;
+  opacity: 1;
+  -ms-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out; }
+  #land.inactive {
+    left: -100px;
+    opacity: 0;
+    z-index: 1; }
+  #land #ld-h {
+    margin: auto;
+    display: block;
+    -ms-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    width: 300px;
+    height: 300px;
+    opacity: 0; }
+  #land #ld-t {
+    width: 50%;
+    display: block;
+    margin: auto; }
+  #land #ld-tt {
+    width: 50%;
+    font-size: 13px;
+    text-align: center;
+    display: block;
+    margin: auto;
+    color: #ccc;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px; }
+    @media (max-width: 480px), (max-height: 600px) {
+      #land #ld-tt {
+        width: 85%; } }
+  #land #ld-b {
+    width: 150px;
+    height: 150px;
+    background: url(img/go.svg) center center no-repeat;
+    background-size: contain;
+    display: block;
+    margin: auto;
+    cursor: pointer; }
+    #land #ld-b:hover {
+      background-image: url(img/go-active.svg); }
+    #land #ld-b.mobile {
+      position: absolute;
+      width: 100px;
+      height: 100px; }
+
+#cs-menu {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  background: #000;
+  width: 100%;
+  height: 57px; }
+  #cs-menu .item {
+    width: 16%;
+    display: block;
+    float: left;
+    color: #fff;
+    opacity: 0.5;
+    font-size: 1.2em;
+    text-align: center;
+    margin: 5px 0; }
+    #cs-menu .item .county {
+      font-size: 1.1em; }
+    #cs-menu .item .name {
+      font-size: 0.8em; }
+  #cs-menu .item.active {
+    opacity: 1; }
+  #cs-menu img#logo {
+    float: left;
+    width: 167px;
+    height: 50px;
+    margin: 2px 0 2px 10px; }
+  @media (max-width: 991px) {
+    #cs-menu {
+      height: 47px; }
+      #cs-menu .item {
+        font-size: 12px;
+        width: 13%; }
+      #cs-menu img#logo {
+        width: 133px;
+        height: 40px;
+        margin: 1px 0; } }
+  @media (max-width: 480px) {
+    #cs-menu .item {
+      width: 11.5%; }
+    #cs-menu img#logo {
+      width: 133px;
+      height: 40px;
+      margin: 1px 0; } }
+
+#choose {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  z-index: 2;
+  background: url(img/land-bk.png) center center no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%; }
+  #choose img {
+    position: absolute;
+    width: 100px; }
+  #choose #cs-rlt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; }
+  #choose #cs-rlt .head {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90px;
+    height: 100px;
+    background-size: cover;
+    background-position: 0 center;
+    background-repeat: no-repeat;
+    background-image: url(img/heads.png); }
+  #choose #cs-rlt .p1 {
+    margin: -100px 0 0 -250px;
+    -ms-transform: scale(0.4);
+    -moz-transform: scale(0.4);
+    -webkit-transform: scale(0.4);
+    -o-transform: scale(0.4);
+    transform: scale(0.4);
+    z-index: 2; }
+  #choose #cs-rlt .p2 {
+    margin: -75px 0 0 -280px;
+    -ms-transform: scale(0.65);
+    -moz-transform: scale(0.65);
+    -webkit-transform: scale(0.65);
+    -o-transform: scale(0.65);
+    transform: scale(0.65);
+    z-index: 4; }
+  #choose #cs-rlt .p3 {
+    margin: -30px 0 0 -300px;
+    -ms-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    transform: scale(0.8);
+    z-index: 6; }
+  #choose #cs-rlt .p4 {
+    margin: 10px 0 0 -250px;
+    -ms-transform: scale(1);
+    -moz-transform: scale(1);
+    -webkit-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    z-index: 8; }
+  #choose #cs-rlt .p5 {
+    margin: 10px 0 0 -50px;
+    -ms-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+    z-index: 10;
+    opacity: 0; }
+  #choose #cs-rlt .p6 {
+    margin: 10px 0 0 160px;
+    -ms-transform: scale(1);
+    -moz-transform: scale(1);
+    -webkit-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    z-index: 9; }
+  #choose #cs-rlt .p7 {
+    margin: -30px 0 0 210px;
+    -ms-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    transform: scale(0.8);
+    z-index: 7; }
+  #choose #cs-rlt .p8 {
+    margin: -75px 0 0 190px;
+    -ms-transform: scale(0.65);
+    -moz-transform: scale(0.65);
+    -webkit-transform: scale(0.65);
+    -o-transform: scale(0.65);
+    transform: scale(0.65);
+    z-index: 5; }
+  #choose #cs-rlt .p9 {
+    margin: -100px 0 0 160px;
+    -ms-transform: scale(0.4);
+    -moz-transform: scale(0.4);
+    -webkit-transform: scale(0.4);
+    -o-transform: scale(0.4);
+    transform: scale(0.4);
+    z-index: 3; }
+  #choose #cs-rlt .head:nth-of-type(1) {
+    background-position: 0 center; }
+  #choose #cs-rlt .head:nth-of-type(2) {
+    background-position: -90px center; }
+  #choose #cs-rlt .head:nth-of-type(3) {
+    background-position: -180px center; }
+  #choose #cs-rlt .head:nth-of-type(4) {
+    background-position: -270px center; }
+  #choose #cs-rlt .head:nth-of-type(5) {
+    background-position: -360px center; }
+  #choose #cs-box {
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    left: 50%;
+    z-index: 11;
+    margin: -150px 0 0 -150px;
+    width: 300px;
+    height: 300px;
+    background: url(img/choose.png) 0 center no-repeat;
+    background-size: cover; }
+    #choose #cs-box:hover {
+      background-position: -300px center; }
+    @media (max-width: 991px) {
+      #choose #cs-box {
+        width: 200px;
+        height: 200px;
+        margin: -100px 0 0 -100px; }
+        #choose #cs-box:hover {
+          background-position: -200px center; } }
+  #choose #cs-box-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(img/choose.png) -600px center no-repeat;
+    background-size: cover; }
+    @media (max-width: 991px) {
+      #choose #cs-box-inner {
+        background-position: -400px center; } }
+  #choose #cs-btn {
+    position: absolute;
+    width: 100%;
+    bottom: 20px;
+    z-index: 12;
+    text-align: center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+  #choose #cs-gl, #choose #cs-gr, #choose #cs-gt {
+    display: inline-block;
+    vertical-align: middle; }
+  #choose #cs-gl, #choose #cs-gr {
+    cursor: pointer;
+    width: 195px;
+    height: 160px;
+    background: url(img/hands.png) 0 center no-repeat;
+    background-size: cover; }
+  #choose #cs-gl {
+    background-position: -195px center; }
+  #choose #cs-gl.active, #choose #cs-gl:hover {
+    background-position: 0 center; }
+  #choose #cs-gr {
+    background-position: -390px center; }
+  #choose #cs-gr.active, #choose #cs-gr:hover {
+    background-position: -585px center; }
