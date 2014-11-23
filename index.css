@@ -398,8 +398,20 @@ body {
   margin-top: 0;
   width: 380px;
   height: 0;
-  background: url(img/court4.png) center center no-repeat;
-  background-size: contain; }
+  background: url(img/court-bk.png) center center no-repeat;
+  background-size: contain;
+  -ms-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out; }
+  #court.fin {
+    background-position: center -1000px; }
+  #court > .inner {
+    width: 100%;
+    height: 100%;
+    background: url(img/court-fg.png) center center no-repeat;
+    background-size: contain; }
   #court #jc-h {
     position: absolute;
     top: 46.5%;
@@ -424,6 +436,9 @@ body {
     #court .bulb.s2 {
       background-image: url(img/bulb2.png); }
     #court .bulb .inner {
+      width: 120%;
+      height: 120%;
+      margin: -5% -10% 0 0;
       opacity: 0;
       -ms-transition: all 0.5s ease-out;
       -moz-transition: all 0.5s ease-out;
@@ -438,7 +453,17 @@ body {
 #judge .sent {
   position: absolute;
   top: 100px;
-  margin: 10px; }
+  margin: 10px;
+  opacity: 1;
+  -ms-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out; }
+  #judge .sent.fin {
+    top: 0;
+    opacity: 0;
+    z-index: 0; }
 #judge .sent .title {
   font-size: 2em;
   margin-bottom: 10px;
@@ -499,7 +524,17 @@ body {
   bottom: 0;
   left: 50%;
   margin-left: -8%;
-  cursor: pointer; }
+  cursor: pointer;
+  opacity: 1;
+  -ms-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out; }
+  #jg-sentl.fin, #jg-sentr.fin {
+    bottom: -20px;
+    opacity: 0;
+    z-index: 0; }
 
 #jg-sentl {
   left: 40%;
@@ -521,7 +556,11 @@ body {
   height: 80px;
   cursor: pointer;
   background: url(img/more.png) 0 center no-repeat;
-  background-size: cover; }
+  background-size: cover;
+  opacity: 1; }
+  #jg-more.fin {
+    right: -20px;
+    opacity: 0; }
   #jg-more.active, #jg-more:hover {
     background-position: -186px center; }
   #jg-more.shown {
@@ -538,3 +577,41 @@ body {
         background-position: -186px center; }
       #jg-more.shown.active, #jg-more.shown:hover {
         background-position: -279px center; } }
+
+#fin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 7;
+  width: 100%;
+  height: 100%;
+  color: #000; }
+  #fin #fin-pass {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    margin-left: -10%;
+    width: 20%;
+    height: 137px;
+    background: url(img/pass.png) center center no-repeat;
+    background-size: contain; }
+  #fin #fin-ret {
+    position: absolute;
+    bottom: 20px;
+    width: 300px;
+    left: 50%;
+    margin-left: -150px;
+    font-size: 1.4em;
+    text-align: center; }
+  #fin #fin-note {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    width: 260px;
+    font-size: 0.6em;
+    color: #999; }
+  #fin #fin-btn {
+    position: absolute;
+    right: 20px;
+    bottom: 20px; }

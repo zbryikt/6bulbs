@@ -4,20 +4,26 @@ angular.module \main, <[]>
       it.replace "\\n", "\n"
     $scope <<< do
       hint: false
-      stage: \judge
+      stage: \fin #\judge
       rlt: h: <[0 p5 p6 p7 p8 p9]>, c: 5
+      cm: <[朱立倫 吳志鴻 胡自強 賴清德 陳菊]>
       jdg: 
         cc: 5
         cv: 0
         v: [[1 for i from 0 to 5] for j from 0 to 5]
+        count: -> @v[@cc]
       ctx: view: '', achieve: '', more: ''
+
+      fin: -> $scope.stage = 'fin'
 
       scoring: (d) ->
         $scope.jdg.v[$scope.jdg.cc][$scope.jdg.cv] = d
         $scope.jdg.cv++
-        $scope.jdg.cv <?= 6
+        if $scope.jdg.cv > 5 => $scope.fin!
+        $scope.jdg.cv <?= 5
         $scope.knowmore = false
       context: -> if $scope.data =>
+        console.log $scope.jdg.cv
         obj = $scope.data[5 - $scope.jdg.cc].feed.entry[$scope.jdg.cv]
         $scope.ctx.view = obj['gsx$政見']['$t']
         $scope.ctx.achieve = obj['gsx$政績']['$t']
@@ -26,13 +32,18 @@ angular.module \main, <[]>
 
       bulbcls: (id) ->
         ret = 's' + $scope.jdg.v[$scope.jdg.cc][id]
-        if $scope.jdg.cv == id => ret += ' active'
+        if $scope.jdg.cv == id and $scope.stage!='fin' => ret += ' active'
         ret
       choosehead: (d) ->
         $scope.rlt.c += d
         $scope.rlt.c >?= 1
         $scope.rlt.c <?= 5
         $scope.jdg.cc = $scope.rlt.c
+      start: ->
+        $scope.stage = 'judge'
+        $scope.jdg.cc = $scope.rlt.c
+        $scope.jdg.cv = 0
+        $scope.jdg.knowmore = false
     $scope.$watch 'rlt.c' ->
       $scope.rlt.h = ["p#{v + $scope.rlt.c}" for v from -1 to 4]
       $scope.rlt.b = "p#{6 - $scope.rlt.c}"
@@ -82,6 +93,7 @@ angular.module \main, <[]>
           top: "#{parseInt(y)}px"
           width: "#{bw}px"
           height: "#{bh}px"
+        $("\#bulb#{i + 1} .inner").css fontSize: "#{parseInt(bw/2)}px"
       [jchw,jchh] = [1.4 * r * 136 / 201, 1.4 * r * 150 / 201]
       jc-h.css do
         width: "#{parseInt(jchw)}px"

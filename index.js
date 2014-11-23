@@ -8,11 +8,12 @@ x$.controller('main', ['$scope', '$http', '$timeout', '$interval'].concat(functi
   };
   import$($scope, {
     hint: false,
-    stage: 'judge',
+    stage: 'fin',
     rlt: {
       h: ['0', 'p5', 'p6', 'p7', 'p8', 'p9'],
       c: 5
     },
+    cm: ['朱立倫', '吳志鴻', '胡自強', '賴清德', '陳菊'],
     jdg: {
       cc: 5,
       cv: 0,
@@ -28,23 +29,33 @@ x$.controller('main', ['$scope', '$http', '$timeout', '$interval'].concat(functi
           results$.push(lresult$);
         }
         return results$;
-      }())
+      }()),
+      count: function(){
+        return this.v[this.cc];
+      }
     },
     ctx: {
       view: '',
       achieve: '',
       more: ''
     },
+    fin: function(){
+      return $scope.stage = 'fin';
+    },
     scoring: function(d){
       var ref$;
       $scope.jdg.v[$scope.jdg.cc][$scope.jdg.cv] = d;
       $scope.jdg.cv++;
-      (ref$ = $scope.jdg).cv <= 6 || (ref$.cv = 6);
+      if ($scope.jdg.cv > 5) {
+        $scope.fin();
+      }
+      (ref$ = $scope.jdg).cv <= 5 || (ref$.cv = 5);
       return $scope.knowmore = false;
     },
     context: function(){
       var obj;
       if ($scope.data) {
+        console.log($scope.jdg.cv);
         obj = $scope.data[5 - $scope.jdg.cc].feed.entry[$scope.jdg.cv];
         $scope.ctx.view = obj['gsx$政見']['$t'];
         $scope.ctx.achieve = obj['gsx$政績']['$t'];
@@ -55,7 +66,7 @@ x$.controller('main', ['$scope', '$http', '$timeout', '$interval'].concat(functi
     bulbcls: function(id){
       var ret;
       ret = 's' + $scope.jdg.v[$scope.jdg.cc][id];
-      if ($scope.jdg.cv === id) {
+      if ($scope.jdg.cv === id && $scope.stage !== 'fin') {
         ret += ' active';
       }
       return ret;
@@ -66,6 +77,12 @@ x$.controller('main', ['$scope', '$http', '$timeout', '$interval'].concat(functi
       (ref$ = $scope.rlt).c >= 1 || (ref$.c = 1);
       (ref$ = $scope.rlt).c <= 5 || (ref$.c = 5);
       return $scope.jdg.cc = $scope.rlt.c;
+    },
+    start: function(){
+      $scope.stage = 'judge';
+      $scope.jdg.cc = $scope.rlt.c;
+      $scope.jdg.cv = 0;
+      return $scope.jdg.knowmore = false;
     }
   });
   $scope.$watch('rlt.c', function(){
@@ -139,6 +156,9 @@ x$.controller('main', ['$scope', '$http', '$timeout', '$interval'].concat(functi
         top: parseInt(y) + "px",
         width: bw + "px",
         height: bh + "px"
+      });
+      $("#bulb" + (i + 1) + " .inner").css({
+        fontSize: parseInt(bw / 2) + "px"
       });
     }
     ref$ = [1.4 * r * 136 / 201, 1.4 * r * 150 / 201], jchw = ref$[0], jchh = ref$[1];

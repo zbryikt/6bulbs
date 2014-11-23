@@ -19,8 +19,16 @@
   margin-top: 0
   width: 380px
   height: 0
-  background: url(img/court4.png) center center no-repeat
+  background: url(img/court-bk.png) center center no-repeat
   background-size: contain
+  @include transition(all 0.5s ease-in-out)
+  &.fin
+    background-position: center -1000px
+  & > .inner
+    width: 100%
+    height: 100%
+    background: url(img/court-fg.png) center center no-repeat
+    background-size: contain
   #jc-h
     position: absolute
     top: 46.5%
@@ -45,6 +53,9 @@
     &.s2
       background-image: url(img/bulb2.png)
     .inner
+      width: 120%
+      height: 120%
+      margin: -5% -10% 0 0
       opacity: 0
       @include transition(all 0.5s ease-out)
     &.active
@@ -57,6 +68,12 @@
     position: absolute
     top: 100px
     margin: 10px
+    opacity: 1
+    @include transition(all 0.5s ease-in-out)
+    &.fin
+      top: 0
+      opacity: 0
+      z-index: 0
   .sent .title
     font-size: 2em
     margin-bottom: 10px
@@ -105,6 +122,12 @@
   left: 50%
   margin-left: -8%
   cursor: pointer
+  opacity: 1
+  @include transition(all 0.5s ease-in-out)
+  &.fin
+    bottom: -20px
+    opacity: 0
+    z-index: 0
 #jg-sentl
   left: 40%
   background-image: url(img/jg/sentl.png)
@@ -124,6 +147,10 @@
   cursor: pointer
   background: url(img/more.png) 0 center no-repeat
   background-size: cover
+  opacity: 1
+  &.fin
+    right: -20px
+    opacity: 0
   &.active, &:hover
     background-position: -186px center
   &.shown

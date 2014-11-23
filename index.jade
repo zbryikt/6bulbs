@@ -44,7 +44,7 @@ html(lang="en")
           .name 陳菊
       #choose(ng-class="{'inactive':stage!='choose'}")
         | &nbsp;
-        #cs-box(ng-click="stage='judge'")
+        #cs-box(ng-click="start()")
           #cs-box-inner(ng-class="rlt.b")
         #cs-rlt
           .head(ng-class="rlt.h[1]",ng-click="rlt.c=5")
@@ -56,27 +56,39 @@ html(lang="en")
           #cs-gl(ng-click="choosehead(-1)")
           #cs-gt 選擇一個首長
           #cs-gr(ng-click="choosehead(1)")
-      #judge(ng-show="stage=='judge'")
-        #court
-          #jc-h
-          #bulb1.bulb(ng-class="bulbcls(0)"): .inner {{ctx.cat}}
-          #bulb2.bulb(ng-class="bulbcls(1)"): .inner {{ctx.cat}}
-          #bulb3.bulb(ng-class="bulbcls(2)"): .inner {{ctx.cat}}
-          #bulb4.bulb(ng-class="bulbcls(3)"): .inner {{ctx.cat}}
-          #bulb5.bulb(ng-class="bulbcls(4)"): .inner {{ctx.cat}}
-          #bulb6.bulb(ng-class="bulbcls(5)"): .inner {{ctx.cat}}
-        #jg-sent1.sent
+      #judge(ng-show="stage=='judge' || stage=='fin'")
+        #court(ng-class="{'fin':stage=='fin'}")
+          .inner
+            #jc-h
+            #bulb1.bulb(ng-class="bulbcls(0)"): .inner {{ctx.cat}}
+            #bulb2.bulb(ng-class="bulbcls(1)"): .inner {{ctx.cat}}
+            #bulb3.bulb(ng-class="bulbcls(2)"): .inner {{ctx.cat}}
+            #bulb4.bulb(ng-class="bulbcls(3)"): .inner {{ctx.cat}}
+            #bulb5.bulb(ng-class="bulbcls(4)"): .inner {{ctx.cat}}
+            #bulb6.bulb(ng-class="bulbcls(5)"): .inner {{ctx.cat}}
+
+        #jg-sent1.sent(ng-class="{'fin':stage=='fin'}")
           #js1-title.title 2010年他曾經這麼說
           #js1-desc.desc
             | {{ ctx.view }}
-        #jg-sent2.sent(ng-class="{'inactive':knowmore}")
+        #jg-sent2.sent(ng-class="{'inactive':knowmore,'fin':stage=='fin'}")
           #js2-title.title 2014年他實際做到的
           #js2-desc.desc
             | {{ ctx.achieve}}
-        #jg-sent3.sent(ng-class="{'inactive':!knowmore}")
+        #jg-sent3.sent(ng-class="{'inactive':!knowmore,'fin':stage=='fin'}")
           #js3-title.title 但你不能不知道
           #js3-desc.desc
             | {{ ctx.more }}
-        #jg-sentl(ng-click="scoring(2)")
-        #jg-sentr(ng-click="scoring(0)")
-        #jg-more(ng-class="{'shown':knowmore}",ng-click="knowmore=!!!knowmore")
+        #jg-sentl(ng-click="scoring(2)",ng-class="{'fin':stage=='fin'}")
+        #jg-sentr(ng-click="scoring(0)",ng-class="{'fin':stage=='fin'}")
+        #jg-more(ng-class="{'shown':knowmore,'fin':stage=='fin'}",ng-click="knowmore=!!!knowmore")
+      #fin(ng-active="{'inactive':stage!='fin'}")
+        #fin-pass
+        #fin-note 此新聞專題企圖以青年視角整理並檢測追求連任者政見，因此在觀點選擇以及時間限制上，所列並非完整政見，若有任何建議情來信 newseforum@gmail.com。
+        #fin-ret
+          | 我給 {{cm[5 - jdg.cc]}} 的市政六燈獎結果是
+          br
+          | 亮 x 燈！
+        #fin-btn
+          .btn.btn-primary 回選單監督其他市長
+          .btn.btn-primary 分享讓更多人監督

@@ -55,7 +55,7 @@
         </div>
       </div>
       <div id="choose" ng-class="{'inactive':stage!='choose'}">&nbsp;
-        <div id="cs-box" ng-click="stage='judge'">
+        <div id="cs-box" ng-click="start()">
           <div id="cs-box-inner" ng-class="rlt.b"></div>
         </div>
         <div id="cs-rlt">
@@ -71,43 +71,54 @@
           <div id="cs-gr" ng-click="choosehead(1)"></div>
         </div>
       </div>
-      <div id="judge" ng-show="stage=='judge'">
-        <div id="court">
-          <div id="jc-h"></div>
-          <div id="bulb1" ng-class="bulbcls(0)" class="bulb">
-            <div class="inner">{{ctx.cat}}</div>
-          </div>
-          <div id="bulb2" ng-class="bulbcls(1)" class="bulb">
-            <div class="inner">{{ctx.cat}}</div>
-          </div>
-          <div id="bulb3" ng-class="bulbcls(2)" class="bulb">
-            <div class="inner">{{ctx.cat}}</div>
-          </div>
-          <div id="bulb4" ng-class="bulbcls(3)" class="bulb">
-            <div class="inner">{{ctx.cat}}</div>
-          </div>
-          <div id="bulb5" ng-class="bulbcls(4)" class="bulb">
-            <div class="inner">{{ctx.cat}}</div>
-          </div>
-          <div id="bulb6" ng-class="bulbcls(5)" class="bulb">
-            <div class="inner">{{ctx.cat}}</div>
+      <div id="judge" ng-show="stage=='judge' || stage=='fin'">
+        <div id="court" ng-class="{'fin':stage=='fin'}">
+          <div class="inner">
+            <div id="jc-h"></div>
+            <div id="bulb1" ng-class="bulbcls(0)" class="bulb">
+              <div class="inner">{{ctx.cat}}</div>
+            </div>
+            <div id="bulb2" ng-class="bulbcls(1)" class="bulb">
+              <div class="inner">{{ctx.cat}}</div>
+            </div>
+            <div id="bulb3" ng-class="bulbcls(2)" class="bulb">
+              <div class="inner">{{ctx.cat}}</div>
+            </div>
+            <div id="bulb4" ng-class="bulbcls(3)" class="bulb">
+              <div class="inner">{{ctx.cat}}</div>
+            </div>
+            <div id="bulb5" ng-class="bulbcls(4)" class="bulb">
+              <div class="inner">{{ctx.cat}}</div>
+            </div>
+            <div id="bulb6" ng-class="bulbcls(5)" class="bulb">
+              <div class="inner">{{ctx.cat}}</div>
+            </div>
           </div>
         </div>
-        <div id="jg-sent1" class="sent">
+        <div id="jg-sent1" ng-class="{'fin':stage=='fin'}" class="sent">
           <div id="js1-title" class="title">2010年他曾經這麼說</div>
           <div id="js1-desc" class="desc">{{ ctx.view }}</div>
         </div>
-        <div id="jg-sent2" ng-class="{'inactive':knowmore}" class="sent">
+        <div id="jg-sent2" ng-class="{'inactive':knowmore,'fin':stage=='fin'}" class="sent">
           <div id="js2-title" class="title">2014年他實際做到的</div>
           <div id="js2-desc" class="desc">{{ ctx.achieve}}</div>
         </div>
-        <div id="jg-sent3" ng-class="{'inactive':!knowmore}" class="sent">
+        <div id="jg-sent3" ng-class="{'inactive':!knowmore,'fin':stage=='fin'}" class="sent">
           <div id="js3-title" class="title">但你不能不知道</div>
           <div id="js3-desc" class="desc">{{ ctx.more }}</div>
         </div>
-        <div id="jg-sentl" ng-click="scoring(2)"></div>
-        <div id="jg-sentr" ng-click="scoring(0)"></div>
-        <div id="jg-more" ng-class="{'shown':knowmore}" ng-click="knowmore=!!!knowmore"></div>
+        <div id="jg-sentl" ng-click="scoring(2)" ng-class="{'fin':stage=='fin'}"></div>
+        <div id="jg-sentr" ng-click="scoring(0)" ng-class="{'fin':stage=='fin'}"></div>
+        <div id="jg-more" ng-class="{'shown':knowmore,'fin':stage=='fin'}" ng-click="knowmore=!!!knowmore"></div>
+      </div>
+      <div id="fin" ng-active="{'inactive':stage!='fin'}">
+        <div id="fin-pass"></div>
+        <div id="fin-note">此新聞專題企圖以青年視角整理並檢測追求連任者政見，因此在觀點選擇以及時間限制上，所列並非完整政見，若有任何建議情來信 newseforum@gmail.com。</div>
+        <div id="fin-ret">我給 {{cm[5 - jdg.cc]}} 的市政六燈獎結果是<br>亮 x 燈！</div>
+        <div id="fin-btn">
+          <div class="btn btn-primary">回選單監督其他市長</div>
+          <div class="btn btn-primary">分享讓更多人監督</div>
+        </div>
       </div>
     </div>
   </body>
