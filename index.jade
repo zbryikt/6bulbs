@@ -58,7 +58,7 @@ html(lang="en")
           #cs-gr(ng-click="choosehead(1)")
       #judge(ng-show="stage=='judge'")
         #court
-          #jc-h(ng-class="rlt.b")
+          #jc-h
           #bulb1.bulb(ng-class="'s'+jdg.v[jdg.cc][0]")
           #bulb2.bulb(ng-class="'s'+jdg.v[jdg.cc][1]")
           #bulb3.bulb(ng-class="'s'+jdg.v[jdg.cc][2]")
@@ -75,7 +75,7 @@ html(lang="en")
             | 3. 打造文化觀光區：
             | 保育海岸藍帶，尊重區域內之景觀特質，保存空間內之文化價值，發展特色觀光。
             | 打造藝術水岸文化專區，以發展大里溪沿岸區域，沿著水岸形塑出文化藝術生活動線為主。
-        #jg-sent2.sent
+        #jg-sent2.sent(ng-class="{'inactive':knowmore}")
           #js2-title.title 2010年他曾經這麼說
           #js2-desc.desc
             | 1. 持續推動各項文化軟硬體建設，舉辦大型國際活動、促進國際藝文交流，以全球化、國際化為追求的目標，讓臺中市躋身世界文化都市之林。
@@ -85,6 +85,14 @@ html(lang="en")
             | 3. 打造文化觀光區：
             | 保育海岸藍帶，尊重區域內之景觀特質，保存空間內之文化價值，發展特色觀光。
             | 打造藝術水岸文化專區，以發展大里溪沿岸區域，沿著水岸形塑出文化藝術生活動線為主。
+        #jg-sent3.sent(ng-class="{'inactive':!knowmore}")
+          #js3-title.title 但你不能不知道
+          #js3-desc.desc
+            | 1.至今仍沒有社會住宅專責營運機構。
+            | 2.「自治條例草案」還躺在議會，新北市府認為配合中央住宅法即可；但部分都市更新轉作社會住宅則無下文。
+            | 3.被批評跳票的18萬戶社會住宅，新北市反駁只有「部分」要做青年、出租國宅。
+            | 4.新北市去年房價平均1148萬，11.4年不吃不喝存下薪水才買得起房，房貸支出佔家庭所得四成，都比全國平均高，還有63%新北市民認為房價不合理，也是全台最高。
+            | 5.居住議題NGO巢運認為新北市社會住宅「摻水」，部分有符合社宅條件的戶數比例不高、可轉賣、細節尚未定案等問題，原民住宅則遭批尚未與居民談妥就先動工。新北市府回應財源有限，以多元方式紮實推動社會住宅。
         #jg-sentl(ng-click="scoring(2)")
         #jg-sentr(ng-click="scoring(0)")
-        #jg-more
+        #jg-more(ng-class="{'shown':knowmore}",ng-click="knowmore=!!!knowmore")

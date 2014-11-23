@@ -11,7 +11,7 @@ x$.controller('main', ['$scope', '$timeout', '$interval'].concat(function($scope
       c: 5
     },
     jdg: {
-      cc: 0,
+      cc: 5,
       cv: 0,
       v: (function(){
         var i$, lresult$, j$, results$ = [];
@@ -121,7 +121,8 @@ x$.controller('main', ['$scope', '$timeout', '$interval'].concat(function($scope
       width: parseInt(jchw) + "px",
       height: parseInt(jchh) + "px",
       marginLeft: "-" + parseInt(jchw / 2) + "px",
-      marginTop: "-" + parseInt(jchh / 2) + "px"
+      marginTop: "-" + parseInt(jchh / 2) + "px",
+      backgroundPosition: "-" + parseInt((5 - $scope.jdg.cc) * jchw) + "px center"
     });
     if (cw * 775 / 547 > ch) {
       sw = (w - ch * 547 / 775) / 2 - 20;
@@ -134,7 +135,8 @@ x$.controller('main', ['$scope', '$timeout', '$interval'].concat(function($scope
       fontSize: fs
     };
     $('#jg-sent1').css(sentCss);
-    return $('#jg-sent2').css(sentCss);
+    $('#jg-sent2').css(sentCss);
+    return $('#jg-sent3').css(sentCss);
   };
   win.resize(function(){
     return $scope.$apply(function(){

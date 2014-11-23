@@ -5,7 +5,7 @@ angular.module \main, <[]>
       stage: \judge
       rlt: h: <[0 p5 p6 p7 p8 p9]>, c: 5
       jdg: 
-        cc: 0
+        cc: 5
         cv: 0
         v: [[1 for i from 0 to 5] for j from 0 to 5]
 
@@ -74,6 +74,7 @@ angular.module \main, <[]>
         height: "#{parseInt(jchh)}px"
         marginLeft: "-#{parseInt(jchw / 2)}px"
         marginTop: "-#{parseInt(jchh / 2)}px"
+        backgroundPosition: "-#{parseInt((5 - $scope.jdg.cc) * jchw)}px center"
       if cw * 775 / 547 > ch => 
         sw = (w - (ch * 547 / 775)) / 2 - 20
       else
@@ -82,6 +83,7 @@ angular.module \main, <[]>
       sent-css = width: "#{parseInt(sw)}px", fontSize: fs
       $(\#jg-sent1).css sent-css
       $(\#jg-sent2).css sent-css
+      $(\#jg-sent3).css sent-css
 
 
     win.resize -> $scope.$apply -> orient-detect!

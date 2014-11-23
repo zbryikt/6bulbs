@@ -29,16 +29,6 @@
     height: 150px
     background: url(img/heads.png) center center no-repeat
     background-size: cover
-    &.p1
-      background-position: 0 center
-    &.p2
-      background-position: -136px center
-    &.p3
-      background-position: -272px center
-    &.p4
-      background-position: -408px center
-    &.p5
-      background-position: -444px center
   .bulb
     position: absolute
     top: 50%
@@ -85,10 +75,16 @@
   left: 0
   padding: 10px
 
-#jg-sent2
+#jg-sent2, #jg-sent3
   top: 100px
   right: 0
   padding: 10px
+  @include transition(all 0.5s ease-in-out)
+  @include transform(translate(0,0))
+  opacity: 1
+  &.inactive
+    @include transform(translate(200px,0))
+    opacity: 0 
  
 #jg-sentl, #jg-sentr
   width: 16%
@@ -122,8 +118,16 @@
   background-size: cover
   &.active, &:hover
     background-position: -186px center
+  &.shown
+    background-position: -372px center
+  &.shown.active, &.shown:hover
+    background-position: -558px center
   @media (max-width: 768px)
     width: 93px
     height: 40px
     &.active, &:hover
       background-position: -93px center
+    &.shown
+      background-position: -186px center
+    &.shown.active, &.shown:hover
+      background-position: -279px center

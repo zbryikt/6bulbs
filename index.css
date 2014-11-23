@@ -408,16 +408,6 @@ body {
     height: 150px;
     background: url(img/heads.png) center center no-repeat;
     background-size: cover; }
-    #court #jc-h.p1 {
-      background-position: 0 center; }
-    #court #jc-h.p2 {
-      background-position: -136px center; }
-    #court #jc-h.p3 {
-      background-position: -272px center; }
-    #court #jc-h.p4 {
-      background-position: -408px center; }
-    #court #jc-h.p5 {
-      background-position: -444px center; }
   #court .bulb {
     position: absolute;
     top: 50%;
@@ -464,10 +454,28 @@ body {
   left: 0;
   padding: 10px; }
 
-#jg-sent2 {
+#jg-sent2, #jg-sent3 {
   top: 100px;
   right: 0;
-  padding: 10px; }
+  padding: 10px;
+  -ms-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -ms-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -webkit-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+  opacity: 1; }
+  #jg-sent2.inactive, #jg-sent3.inactive {
+    -ms-transform: translate(200px, 0);
+    -moz-transform: translate(200px, 0);
+    -webkit-transform: translate(200px, 0);
+    -o-transform: translate(200px, 0);
+    transform: translate(200px, 0);
+    opacity: 0; }
 
 #jg-sentl, #jg-sentr {
   width: 16%;
@@ -504,9 +512,17 @@ body {
   background-size: cover; }
   #jg-more.active, #jg-more:hover {
     background-position: -186px center; }
+  #jg-more.shown {
+    background-position: -372px center; }
+  #jg-more.shown.active, #jg-more.shown:hover {
+    background-position: -558px center; }
   @media (max-width: 768px) {
     #jg-more {
       width: 93px;
       height: 40px; }
       #jg-more.active, #jg-more:hover {
-        background-position: -93px center; } }
+        background-position: -93px center; }
+      #jg-more.shown {
+        background-position: -186px center; }
+      #jg-more.shown.active, #jg-more.shown:hover {
+        background-position: -279px center; } }
