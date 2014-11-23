@@ -9,6 +9,7 @@
   height: 100%
   background: #fff
   z-index: index($order, judge)
+  overflow: hidden
 
 #court
   position: absolute
@@ -43,6 +44,13 @@
       background-image: url(img/bulb1.png)
     &.s2
       background-image: url(img/bulb2.png)
+    .inner
+      opacity: 0
+      @include transition(all 0.5s ease-out)
+    &.active
+      background-image: none
+      .inner
+        opacity: 1
 
 #judge
   .sent

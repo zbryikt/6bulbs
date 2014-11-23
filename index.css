@@ -387,7 +387,8 @@ body {
   width: 100%;
   height: 100%;
   background: #fff;
-  z-index: 3; }
+  z-index: 3;
+  overflow: hidden; }
 
 #court {
   position: absolute;
@@ -422,6 +423,17 @@ body {
       background-image: url(img/bulb1.png); }
     #court .bulb.s2 {
       background-image: url(img/bulb2.png); }
+    #court .bulb .inner {
+      opacity: 0;
+      -ms-transition: all 0.5s ease-out;
+      -moz-transition: all 0.5s ease-out;
+      -webkit-transition: all 0.5s ease-out;
+      -o-transition: all 0.5s ease-out;
+      transition: all 0.5s ease-out; }
+    #court .bulb.active {
+      background-image: none; }
+      #court .bulb.active .inner {
+        opacity: 1; }
 
 #judge .sent {
   position: absolute;

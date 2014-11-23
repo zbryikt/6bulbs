@@ -1,5 +1,7 @@
 angular.module \main, <[]>
-  ..controller \main, <[$scope $timeout $interval]> ++ ($scope, $timeout, $interval) ->
+  ..controller \main, <[$scope $http $timeout $interval]> ++ ($scope, $http, $timeout, $interval) ->
+    fmt = ->
+      it.replace "\\n", "\n"
     $scope <<< do
       hint: false
       stage: \judge
@@ -8,12 +10,24 @@ angular.module \main, <[]>
         cc: 5
         cv: 0
         v: [[1 for i from 0 to 5] for j from 0 to 5]
+      ctx: view: '', achieve: '', more: ''
 
       scoring: (d) ->
         $scope.jdg.v[$scope.jdg.cc][$scope.jdg.cv] = d
         $scope.jdg.cv++
         $scope.jdg.cv <?= 6
+        $scope.knowmore = false
+      context: -> if $scope.data =>
+        obj = $scope.data[5 - $scope.jdg.cc].feed.entry[$scope.jdg.cv]
+        $scope.ctx.view = obj['gsx$政見']['$t']
+        $scope.ctx.achieve = obj['gsx$政績']['$t']
+        $scope.ctx.more = obj['gsx$問題']['$t']
+        $scope.ctx.cat = obj['gsx$分類']['$t']
 
+      bulbcls: (id) ->
+        ret = 's' + $scope.jdg.v[$scope.jdg.cc][id]
+        if $scope.jdg.cv == id => ret += ' active'
+        ret
       choosehead: (d) ->
         $scope.rlt.c += d
         $scope.rlt.c >?= 1
@@ -89,3 +103,13 @@ angular.module \main, <[]>
     win.resize -> $scope.$apply -> orient-detect!
     $timeout orient-detect, 500
     $interval (-> orient-detect true), 1000
+
+    $http do
+      url: \data.json
+      method: \GET
+    .success (d) ->
+      $scope.data = d
+      console.log $scope.data
+      $scope.context!
+    $scope.$watch 'jdg.cc', $scope.context
+    $scope.$watch 'jdg.cv', $scope.context
