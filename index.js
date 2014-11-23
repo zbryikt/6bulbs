@@ -2,7 +2,7 @@
 var x$;
 x$ = angular.module('main', []);
 x$.controller('main', ['$scope', '$timeout', '$interval'].concat(function($scope, $timeout, $interval){
-  var win, ldTt, ldB, ldH, ref$, w, h, orientDetect;
+  var j, i, win, ldTt, ldB, ldH, jcH, court, ref$, w, h, orientDetect;
   import$($scope, {
     hint: false,
     stage: 'judge',
@@ -10,13 +10,37 @@ x$.controller('main', ['$scope', '$timeout', '$interval'].concat(function($scope
       h: ['0', 'p5', 'p6', 'p7', 'p8', 'p9'],
       c: 5
     },
-    choosehead: function(d){
+    jdg: {
+      cc: 0,
+      cv: 0,
+      v: (function(){
+        var i$, lresult$, j$, results$ = [];
+        for (i$ = 0; i$ <= 5; ++i$) {
+          j = i$;
+          lresult$ = [];
+          for (j$ = 0; j$ <= 5; ++j$) {
+            i = j$;
+            lresult$.push(1);
+          }
+          results$.push(lresult$);
+        }
+        return results$;
+      }())
+    },
+    scoring: function(d){
       var ref$, ref1$;
+      $scope.jdg.v[$scope.jdg.cc][$scope.jdg.cv] = d;
+      $scope.jdg.cv++;
+      return (ref1$ = (ref$ = $scope.jdg).cv) <= 6
+        ? ref1$
+        : ref$.cv = 6;
+    },
+    choosehead: function(d){
+      var ref$;
       $scope.rlt.c += d;
       (ref$ = $scope.rlt).c >= 1 || (ref$.c = 1);
-      return (ref1$ = (ref$ = $scope.rlt).c) <= 5
-        ? ref1$
-        : ref$.c = 5;
+      (ref$ = $scope.rlt).c <= 5 || (ref$.c = 5);
+      return $scope.jdg.cc = $scope.rlt.c;
     }
   });
   $scope.$watch('rlt.c', function(){
@@ -40,9 +64,11 @@ x$.controller('main', ['$scope', '$timeout', '$interval'].concat(function($scope
   ldTt = $('#ld-tt');
   ldB = $('#ld-b');
   ldH = $('#ld-h');
+  jcH = $('#jc-h');
+  court = $('#court');
   ref$ = [win.width(), win.height()], w = ref$[0], h = ref$[1];
   orientDetect = function(check){
-    var ref$, ldSpare, smMode, hc, wc;
+    var ref$, ldSpare, smMode, hc, wc, mh, cw, ch, r, bw, bh, i$, i, a, x, y, jchw, jchh, sw, fs, sentCss;
     ref$ = [win.width(), win.height()], w = ref$[0], h = ref$[1];
     $scope.hint = w < h;
     ldSpare = ldTt.height() + 150 + 30;
@@ -59,13 +85,56 @@ x$.controller('main', ['$scope', '$timeout', '$interval'].concat(function($scope
     });
     if (smMode) {
       ldB.addClass('mobile');
-      return ldB.css({
+      ldB.css({
         top: (hc - ldB.height()) + "px",
         left: parseInt((w + wc) / 2) + "px"
       });
     } else {
-      return ldB.removeClass('mobile');
+      ldB.removeClass('mobile');
     }
+    mh = h * 0.1 >= 60 ? h * 0.1 : 60;
+    court.css({
+      top: parseInt(mh) + "px",
+      height: parseInt(h * 0.8) + "px"
+    });
+    ref$ = [court.width(), court.height()], cw = ref$[0], ch = ref$[1];
+    if (cw * 775 / 547 > ch) {
+      r = ch * 201 / 775;
+    } else {
+      r = cw * 201 / 546;
+    }
+    ref$ = [parseInt(1.4 * r * 40 / 201), parseInt(1.4 * r * 60 / 201)], bw = ref$[0], bh = ref$[1];
+    for (i$ = 0; i$ <= 5; ++i$) {
+      i = i$;
+      a = 2 * Math.PI * ((i + 5) % 6) / 6;
+      x = parseInt(r * Math.cos(a) + cw / 2) - bw / 2;
+      y = parseInt(r * Math.sin(a) + ch * 465 / 1000) - bh / 2;
+      $("#bulb" + (i + 1)).css({
+        left: parseInt(x) + "px",
+        top: parseInt(y) + "px",
+        width: bw + "px",
+        height: bh + "px"
+      });
+    }
+    ref$ = [1.4 * r * 136 / 201, 1.4 * r * 150 / 201], jchw = ref$[0], jchh = ref$[1];
+    jcH.css({
+      width: parseInt(jchw) + "px",
+      height: parseInt(jchh) + "px",
+      marginLeft: "-" + parseInt(jchw / 2) + "px",
+      marginTop: "-" + parseInt(jchh / 2) + "px"
+    });
+    if (cw * 775 / 547 > ch) {
+      sw = (w - ch * 547 / 775) / 2 - 20;
+    } else {
+      sw = (w - cw) / 2 - 20;
+    }
+    fs = w < 991 || h < 600 ? '12px' : '1.1em';
+    sentCss = {
+      width: parseInt(sw) + "px",
+      fontSize: fs
+    };
+    $('#jg-sent1').css(sentCss);
+    return $('#jg-sent2').css(sentCss);
   };
   win.resize(function(){
     return $scope.$apply(function(){

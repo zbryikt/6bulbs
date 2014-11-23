@@ -26,7 +26,7 @@ html(lang="en")
           | 評審請給燈燈燈燈燈燈～
         #ld-b(ng-click="stage='choose'")
       #cs-menu
-        img#logo(src="img/logo-sm.png")
+        img#logo(src="img/logo-sm.png",ng-click="stage='land'")
         .item(ng-class="{'active':rlt.c==5}")
           .county 新北市
           .name 朱立倫
@@ -59,12 +59,12 @@ html(lang="en")
       #judge(ng-show="stage=='judge'")
         #court
           #jc-h(ng-class="rlt.b")
-          #bulb1.bulb
-          #bulb2.bulb
-          #bulb3.bulb
-          #bulb4.bulb
-          #bulb5.bulb
-          #bulb6.bulb
+          #bulb1.bulb(ng-class="'s'+jdg.v[jdg.cc][0]")
+          #bulb2.bulb(ng-class="'s'+jdg.v[jdg.cc][1]")
+          #bulb3.bulb(ng-class="'s'+jdg.v[jdg.cc][2]")
+          #bulb4.bulb(ng-class="'s'+jdg.v[jdg.cc][3]")
+          #bulb5.bulb(ng-class="'s'+jdg.v[jdg.cc][4]")
+          #bulb6.bulb(ng-class="'s'+jdg.v[jdg.cc][5]")
         #jg-sent1.sent
           #js1-title.title 2010年他曾經這麼說
           #js1-desc.desc
@@ -85,5 +85,6 @@ html(lang="en")
             | 3. 打造文化觀光區：
             | 保育海岸藍帶，尊重區域內之景觀特質，保存空間內之文化價值，發展特色觀光。
             | 打造藝術水岸文化專區，以發展大里溪沿岸區域，沿著水岸形塑出文化藝術生活動線為主。
-        #jg-sentl
-        #jg-sentr
+        #jg-sentl(ng-click="scoring(2)")
+        #jg-sentr(ng-click="scoring(0)")
+        #jg-more

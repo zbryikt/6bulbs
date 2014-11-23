@@ -128,6 +128,7 @@ body {
     opacity: 1; }
   #cs-menu img#logo {
     float: left;
+    cursor: pointer;
     width: 167px;
     height: 50px;
     margin: 2px 0 2px 10px; }
@@ -393,13 +394,14 @@ body {
   top: 0;
   left: 50%;
   margin-left: -190px;
+  margin-top: 0;
   width: 380px;
-  height: 670px;
-  background: url(img/court2.png) center center no-repeat;
+  height: 0;
+  background: url(img/court4.png) center center no-repeat;
   background-size: contain; }
   #court #jc-h {
     position: absolute;
-    top: 50%;
+    top: 46.5%;
     left: 50%;
     margin: -95px 0 0 -68px;
     width: 136px;
@@ -420,65 +422,91 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 39px;
+    width: 40px;
     height: 60px;
     background: url(img/bulbs.png) 0 center no-repeat;
-    background-size: cover; }
-  #court #bulb1 {
-    margin-left: 44px;
-    margin-top: -164px; }
-  #court #bulb2 {
-    margin-left: 116px;
-    margin-top: -38px; }
-  #court #bulb3 {
-    margin-left: 44px;
-    margin-top: 88px; }
-  #court #bulb4 {
-    margin-left: -83px;
-    margin-top: 88px; }
-  #court #bulb5 {
-    margin-left: -155px;
-    margin-top: -38px; }
-  #court #bulb6 {
-    margin-left: -83px;
-    margin-top: -164px; }
+    background-size: contain; }
+    #court .bulb.s0 {
+      background-image: url(img/bulb0.png); }
+    #court .bulb.s1 {
+      background-image: url(img/bulb1.png); }
+    #court .bulb.s2 {
+      background-image: url(img/bulb2.png); }
 
 #judge .sent {
-  position: absolute; }
+  position: absolute;
+  top: 100px;
+  margin: 10px; }
 #judge .sent .title {
-  font-size: 2.2em;
+  font-size: 2em;
   margin-bottom: 10px;
   text-align: center; }
+#judge .sent .desc {
+  white-space: pre-line; }
+@media (max-width: 991px), (max-height: 500px) {
+  #judge .sent {
+    top: 50px; }
+    #judge .sent .title {
+      font-size: 1.5em;
+      margin-bottom: 5px; } }
+@media (max-width: 768px), (max-height: 360px) {
+  #judge .sent {
+    top: 47px;
+    margin-top: 2px; }
+    #judge .sent .title {
+      font-size: 1.2em;
+      margin-bottom: 0; }
+    #judge .sent .desc {
+      font-size: 0.75em; } }
 
 #jg-sent1 {
   top: 100px;
-  width: 34%;
-  margin-left: 2%; }
+  left: 0;
+  padding: 10px; }
 
 #jg-sent2 {
   top: 100px;
-  width: 34%;
-  margin-left: 64%; }
+  right: 0;
+  padding: 10px; }
 
 #jg-sentl, #jg-sentr {
-  width: 230px;
-  height: 150px;
+  width: 16%;
+  height: 143px;
   position: absolute;
-  background: url(img/score-btn.png) 0 center no-repeat;
-  background-size: cover;
-  bottom: 10px;
+  background-position: 0 bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  bottom: 0;
   left: 50%;
-  margin-left: -115px;
+  margin-left: -8%;
   cursor: pointer; }
 
 #jg-sentl {
   left: 40%;
-  background-position: -230px center; }
+  background-image: url(img/jg/sentl.png); }
   #jg-sentl:hover {
-    background-position: 0 center; }
+    background-image: url(img/jg/sentl-active.png); }
 
 #jg-sentr {
   left: 60%;
-  background-position: -459px center; }
+  background-image: url(img/jg/sentr.png); }
   #jg-sentr:hover {
-    background-position: -690px center; }
+    background-image: url(img/jg/sentr-active.png); }
+
+#jg-more {
+  position: absolute;
+  right: 10px;
+  bottom: 20px;
+  width: 186px;
+  height: 80px;
+  cursor: pointer;
+  background: url(img/more.png) 0 center no-repeat;
+  background-size: cover; }
+  #jg-more.active, #jg-more:hover {
+    background-position: -186px center; }
+  @media (max-width: 768px) {
+    #jg-more {
+      width: 93px;
+      height: 40px; }
+      #jg-more.active, #jg-more:hover {
+        background-position: -93px center; } }

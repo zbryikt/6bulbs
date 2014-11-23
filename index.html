@@ -32,7 +32,7 @@
         </div>
         <div id="ld-b" ng-click="stage='choose'"></div>
       </div>
-      <div id="cs-menu"><img id="logo" src="img/logo-sm.png">
+      <div id="cs-menu"><img id="logo" src="img/logo-sm.png" ng-click="stage='land'">
         <div ng-class="{'active':rlt.c==5}" class="item">
           <div class="county">新北市</div>
           <div class="name">朱立倫</div>
@@ -74,12 +74,12 @@
       <div id="judge" ng-show="stage=='judge'">
         <div id="court">
           <div id="jc-h" ng-class="rlt.b"></div>
-          <div id="bulb1" class="bulb"></div>
-          <div id="bulb2" class="bulb"></div>
-          <div id="bulb3" class="bulb"></div>
-          <div id="bulb4" class="bulb"></div>
-          <div id="bulb5" class="bulb"></div>
-          <div id="bulb6" class="bulb"></div>
+          <div id="bulb1" ng-class="'s'+jdg.v[jdg.cc][0]" class="bulb"></div>
+          <div id="bulb2" ng-class="'s'+jdg.v[jdg.cc][1]" class="bulb"></div>
+          <div id="bulb3" ng-class="'s'+jdg.v[jdg.cc][2]" class="bulb"></div>
+          <div id="bulb4" ng-class="'s'+jdg.v[jdg.cc][3]" class="bulb"></div>
+          <div id="bulb5" ng-class="'s'+jdg.v[jdg.cc][4]" class="bulb"></div>
+          <div id="bulb6" ng-class="'s'+jdg.v[jdg.cc][5]" class="bulb"></div>
         </div>
         <div id="jg-sent1" class="sent">
           <div id="js1-title" class="title">2010年他曾經這麼說</div>
@@ -105,8 +105,9 @@
             打造藝術水岸文化專區，以發展大里溪沿岸區域，沿著水岸形塑出文化藝術生活動線為主。
           </div>
         </div>
-        <div id="jg-sentl"></div>
-        <div id="jg-sentr"></div>
+        <div id="jg-sentl" ng-click="scoring(2)"></div>
+        <div id="jg-sentr" ng-click="scoring(0)"></div>
+        <div id="jg-more"></div>
       </div>
     </div>
   </body>

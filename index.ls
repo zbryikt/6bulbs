@@ -4,11 +4,21 @@ angular.module \main, <[]>
       hint: false
       stage: \judge
       rlt: h: <[0 p5 p6 p7 p8 p9]>, c: 5
+      jdg: 
+        cc: 0
+        cv: 0
+        v: [[1 for i from 0 to 5] for j from 0 to 5]
+
+      scoring: (d) ->
+        $scope.jdg.v[$scope.jdg.cc][$scope.jdg.cv] = d
+        $scope.jdg.cv++
+        $scope.jdg.cv <?= 6
 
       choosehead: (d) ->
         $scope.rlt.c += d
         $scope.rlt.c >?= 1
         $scope.rlt.c <?= 5
+        $scope.jdg.cc = $scope.rlt.c
     $scope.$watch 'rlt.c' ->
       $scope.rlt.h = ["p#{v + $scope.rlt.c}" for v from -1 to 4]
       $scope.rlt.b = "p#{6 - $scope.rlt.c}"
@@ -19,6 +29,8 @@ angular.module \main, <[]>
     ld-tt = $(\#ld-tt)
     ld-b = $(\#ld-b)
     ld-h = $(\#ld-h)
+    jc-h = $(\#jc-h)
+    court = $(\#court)
     [w,h] = [win.width!, win.height!]
 
     orient-detect = (check) ->
@@ -37,15 +49,41 @@ angular.module \main, <[]>
           top: "#{hc - ld-b.height!}px"
           left: "#{parseInt((w + wc)/2)}px"
       else => ld-b.remove-class \mobile
-      /*
-      cs-b = $(\#cs-box)
-      cs-b.css do
-        width: "#{parseInt(w * 0.3)}px"
-        height: "#{parseInt(h * 0.5)}px"
-        marginLeft: "#{parseInt(w * 0.35)}px"
-        marginTop: "#{parseInt(h * 0.25)}px"
-      */
-      
+
+      #court
+      mh = if h * 0.1 >= 60 => h * 0.1 else 60
+      court.css {top: "#{parseInt(mh)}px", height: "#{parseInt(h*0.8)}px"}
+      [cw,ch] = [court.width!, court.height!]
+      if cw * 775 / 547 > ch => 
+        r = ( ch * 201 / 775 )
+      else
+        r = ( cw * 201 / 546 )
+      [bw,bh] = [parseInt(1.4 * r * 40 / 201), parseInt(1.4 * r * 60 / 201)]
+      for i from 0 to 5 =>
+        a = 2 * Math.PI * (( i + 5 ) % 6) / 6
+        x = parseInt(r * Math.cos(a) + cw / 2) - bw / 2
+        y = parseInt(r * Math.sin(a) + ch * 465 / 1000) - bh / 2
+        $("\#bulb#{i + 1}").css do
+          left: "#{parseInt(x)}px"
+          top: "#{parseInt(y)}px"
+          width: "#{bw}px"
+          height: "#{bh}px"
+      [jchw,jchh] = [1.4 * r * 136 / 201, 1.4 * r * 150 / 201]
+      jc-h.css do
+        width: "#{parseInt(jchw)}px"
+        height: "#{parseInt(jchh)}px"
+        marginLeft: "-#{parseInt(jchw / 2)}px"
+        marginTop: "-#{parseInt(jchh / 2)}px"
+      if cw * 775 / 547 > ch => 
+        sw = (w - (ch * 547 / 775)) / 2 - 20
+      else
+        sw = (w - cw) / 2 - 20
+      fs = if w < 991 or h < 600 => \12px else \1.1em
+      sent-css = width: "#{parseInt(sw)}px", fontSize: fs
+      $(\#jg-sent1).css sent-css
+      $(\#jg-sent2).css sent-css
+
+
     win.resize -> $scope.$apply -> orient-detect!
     $timeout orient-detect, 500
     $interval (-> orient-detect true), 1000
