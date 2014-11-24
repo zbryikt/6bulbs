@@ -747,14 +747,19 @@ body {
     transform: rotate(-45deg); }
   #fin #fin-ham-m {
     position: absolute;
-    top: 13%;
+    top: 60px;
     left: 50%;
-    margin-left: -100px;
-    padding-left: 20px;
+    width: 16%;
+    height: 304px;
+    margin-left: -8%;
     text-align: center;
-    width: 200px;
+    background: url(img/fin-fail.png) center top no-repeat;
+    background-size: contain;
     font-size: 3em;
-    line-height: 3em; }
+    line-height: 3em;
+    z-index: 9999; }
+    #fin #fin-ham-m.pass {
+      background-image: url(img/fin-pass.png); }
     @media (max-width: 1280px) {
       #fin #fin-ham-m {
         line-height: 2em;

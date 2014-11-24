@@ -8,7 +8,7 @@ x$.controller('main', ['$scope', '$http', '$timeout', '$interval'].concat(functi
   };
   import$($scope, {
     hint: false,
-    stage: 'land',
+    stage: 'fin',
     rlt: {
       h: ['0', 'p5', 'p6', 'p7', 'p8', 'p9'],
       c: 5

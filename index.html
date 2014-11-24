@@ -119,7 +119,7 @@
       </div>
       <div id="fin" ng-class="{'inactive':stage!='fin'}">
         <div id="fin-ham-l"></div>
-        <div id="fin-ham-m"></div>
+        <div id="fin-ham-m" ng-class="{'pass':jdg.count()&gt;=3}"></div>
         <div id="fin-ham-r"></div>
         <div id="fin-note">此新聞專題企圖以青年視角整理並檢測追求連任者政見，因此在觀點選擇以及時間限制上，所列並非完整政見，若有任何建議請來信寄至<a href="mailto:newseforum@gmail.com">新聞 E 論壇</a> 。</div>
         <div id="fin-ret">我給 {{cm[5 - jdg.cc]}} 的市政六燈獎結果是<br>亮 {{jdg.count()}} 燈！</div>

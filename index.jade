@@ -90,7 +90,7 @@ html(lang="en")
         #jg-more(ng-class="{'shown':knowmore,'fin':stage=='fin'}",ng-click="knowmore=!!!knowmore")
       #fin(ng-class="{'inactive':stage!='fin'}")
         #fin-ham-l
-        #fin-ham-m
+        #fin-ham-m(ng-class="{'pass':jdg.count()>=3}")
         #fin-ham-r
         #fin-note
           | 此新聞專題企圖以青年視角整理並檢測追求連任者政見，因此在觀點選擇以及時間限制上，所列並非完整政見，若有任何建議請來信寄至
