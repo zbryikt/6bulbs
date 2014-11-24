@@ -81,6 +81,11 @@ x$.controller('main', ['$scope', '$http', '$timeout', '$interval'].concat(functi
       }
       return ret;
     },
+    rechoose: function(d){
+      $scope.stage = 'choose';
+      $scope.rlt.c = d;
+      return $scope.jdg.cc = $scope.rlt.c;
+    },
     choosehead: function(d){
       var ref$;
       $scope.rlt.c += d;

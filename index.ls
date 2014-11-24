@@ -36,6 +36,10 @@ angular.module \main, <[]>
         ret = 's' + $scope.jdg.v[$scope.jdg.cc][id]
         if $scope.jdg.cv == id and $scope.stage!='fin' => ret += ' active'
         ret
+      rechoose: (d) ->
+        $scope.stage = 'choose'
+        $scope.rlt.c = d
+        $scope.jdg.cc = $scope.rlt.c
       choosehead: (d) ->
         $scope.rlt.c += d
         $scope.rlt.c >?= 1

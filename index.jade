@@ -28,19 +28,19 @@ html(lang="en")
         #ld-b(ng-click="stage='choose'")
       #cs-menu
         img#logo(src="img/logo-sm.png",ng-click="stage='land'")
-        .item(ng-class="{'active':rlt.c==5}")
+        .item(ng-class="{'active':rlt.c==5}",ng-click="rechoose(1)")
           .county 新北市
           .name 朱立倫
-        .item(ng-class="{'active':rlt.c==4}")
+        .item(ng-class="{'active':rlt.c==4}",ng-click="rechoose(2)")
           .county 桃園縣
           .name 吳志揚
-        .item(ng-class="{'active':rlt.c==3}")
+        .item(ng-class="{'active':rlt.c==3}",ng-click="rechoose(3)")
           .county 台中市
           .name 胡志強
-        .item(ng-class="{'active':rlt.c==2}")
+        .item(ng-class="{'active':rlt.c==2}",ng-click="rechoose(4)")
           .county 台南市
           .name 賴清德
-        .item(ng-class="{'active':rlt.c==1}")
+        .item(ng-class="{'active':rlt.c==1}",ng-click="rechoose(5)")
           .county 高雄市
           .name 陳菊
       #choose(ng-class="{'inactive':stage!='choose'}")
