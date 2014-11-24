@@ -12,9 +12,11 @@ angular.module \main, <[]>
         cv: 0
         v: [[1 for i from 0 to 5] for j from 0 to 5]
         count: -> @v[@cc]map(-> if it ==2 => 1 else 0)reduce(((a,b)->a+b),0)
-      ctx: view: '', achieve: '', more: ''
+      ctx: view: '', achieve: '', more: '', goal: '過關'
 
-      fin: -> $scope.stage = 'fin'
+      fin: -> 
+        $scope.stage = 'fin'
+        @ctx.goal = if @jdg.count! < 3 => "唉呀殘念" else "過關！"
 
       scoring: (d) ->
         $scope.jdg.v[$scope.jdg.cc][$scope.jdg.cv] = d

@@ -45,10 +45,12 @@ x$.controller('main', ['$scope', '$http', '$timeout', '$interval'].concat(functi
     ctx: {
       view: '',
       achieve: '',
-      more: ''
+      more: '',
+      goal: '過關'
     },
     fin: function(){
-      return $scope.stage = 'fin';
+      $scope.stage = 'fin';
+      return this.ctx.goal = this.jdg.count() < 3 ? "唉呀殘念" : "過關！";
     },
     scoring: function(d){
       var ref$;

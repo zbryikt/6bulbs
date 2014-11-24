@@ -4,11 +4,11 @@ doctype html
 - var useog = true
 - var lib = { jquery: true, d3js: true, angular: true, bootstrap: true, semantic: false }
 - var assets = "assets"
-- var thumbnail = "http://dummy.thumbnail"
+- var thumbnail = "http://zbryikt.github.io/6bulbs/img/thumbnail.png"
 html(lang="en")
   head(prefix="og: http://ogp.me/ns#")
     meta(charset="utf-8")
-    title template
+    title 五都市長連任秀 - 政見評審團你來當 / 新聞 e 論壇
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
     // libraries
     include library.jade
@@ -32,10 +32,10 @@ html(lang="en")
           .name 朱立倫
         .item(ng-class="{'active':rlt.c==4}")
           .county 桃園縣
-          .name 吳志鴻
+          .name 吳志揚
         .item(ng-class="{'active':rlt.c==3}")
           .county 台中市
-          .name 胡自強
+          .name 胡志強
         .item(ng-class="{'active':rlt.c==2}")
           .county 台南市
           .name 賴清德
@@ -84,7 +84,7 @@ html(lang="en")
         #jg-more(ng-class="{'shown':knowmore,'fin':stage=='fin'}",ng-click="knowmore=!!!knowmore")
       #fin(ng-class="{'inactive':stage!='fin'}")
         #fin-ham-l
-        #fin-ham-m 過關！
+        #fin-ham-m {{ctx.goal}}
         #fin-ham-r
         #fin-note
           | 此新聞專題企圖以青年視角整理並檢測追求連任者政見，因此在觀點選擇以及時間限制上，所列並非完整政見，若有任何建議請來信寄至
