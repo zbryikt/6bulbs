@@ -4,7 +4,7 @@ angular.module \main, <[]>
       it.replace "\\n", "\n"
     $scope <<< do
       hint: false
-      stage: \fin #\land #\judge
+      stage: \land #\judge
       rlt: h: <[0 p5 p6 p7 p8 p9]>, c: 5
       cm: <[朱立倫 吳志揚 胡志強 賴清德 陳菊]>
       jdg: 
@@ -24,7 +24,7 @@ angular.module \main, <[]>
         if $scope.jdg.cv > 5 => $scope.fin!
         $scope.jdg.cv <?= 5
         $scope.knowmore = false
-      context: -> if $scope.data =>
+      context: -> if $scope.data and $scope.data[5 - $scope.jdg.cc] =>
         console.log $scope.jdg.cv
         obj = $scope.data[5 - $scope.jdg.cc].feed.entry[$scope.jdg.cv]
         $scope.ctx.view = obj['gsx$政見']['$t']
@@ -133,12 +133,26 @@ angular.module \main, <[]>
     $timeout orient-detect, 500
     $interval (-> orient-detect true), 1000
 
-    $http do
+    # use static file
+    /*$http do
       url: \data.json
       method: \GET
     .success (d) ->
       $scope.data = d
       console.log $scope.data
       $scope.context!
+    */
+
+    # dynamic fetch data
+    $scope.data = [null for i from 1 to 5]
+    fetch-data = (id) ->
+      $http do
+        url: "https://spreadsheets.google.com/feeds/list/1RiIPdwuzW7wjuSv4hrgAIxbjhntK6nDowmg99bvN8T0/#id/public/values?alt=json"
+        method: \GET
+      .success (d) ->
+        $scope.data[id - 1] = d
+        if $scope.data.filter(->it)length == 5 => $scope.context!
+    for i from 1 to 5 => fetch-data i
+
     $scope.$watch 'jdg.cc', $scope.context
     $scope.$watch 'jdg.cv', $scope.context

@@ -2,13 +2,13 @@
 var x$;
 x$ = angular.module('main', []);
 x$.controller('main', ['$scope', '$http', '$timeout', '$interval'].concat(function($scope, $http, $timeout, $interval){
-  var fmt, j, i, win, ldTt, ldB, ldH, jcH, hmL, hmR, court, ref$, w, h, orientDetect;
+  var fmt, j, i, win, ldTt, ldB, ldH, jcH, hmL, hmR, court, ref$, w, h, orientDetect, res$, i$, fetchData;
   fmt = function(it){
     return it.replace("\\n", "\n");
   };
   import$($scope, {
     hint: false,
-    stage: 'fin',
+    stage: 'land',
     rlt: {
       h: ['0', 'p5', 'p6', 'p7', 'p8', 'p9'],
       c: 5
@@ -64,7 +64,7 @@ x$.controller('main', ['$scope', '$http', '$timeout', '$interval'].concat(functi
     },
     context: function(){
       var obj;
-      if ($scope.data) {
+      if ($scope.data && $scope.data[5 - $scope.jdg.cc]) {
         console.log($scope.jdg.cv);
         obj = $scope.data[5 - $scope.jdg.cc].feed.entry[$scope.jdg.cv];
         $scope.ctx.view = obj['gsx$政見']['$t'];
@@ -237,14 +237,37 @@ x$.controller('main', ['$scope', '$http', '$timeout', '$interval'].concat(functi
   $interval(function(){
     return orientDetect(true);
   }, 1000);
-  $http({
-    url: 'data.json',
-    method: 'GET'
-  }).success(function(d){
-    $scope.data = d;
-    console.log($scope.data);
-    return $scope.context();
-  });
+  /*$http do
+    url: \data.json
+    method: \GET
+  .success (d) ->
+    $scope.data = d
+    console.log $scope.data
+    $scope.context!
+  */
+  res$ = [];
+  for (i$ = 1; i$ <= 5; ++i$) {
+    i = i$;
+    res$.push(null);
+  }
+  $scope.data = res$;
+  fetchData = function(id){
+    return $http({
+      url: "https://spreadsheets.google.com/feeds/list/1RiIPdwuzW7wjuSv4hrgAIxbjhntK6nDowmg99bvN8T0/" + id + "/public/values?alt=json",
+      method: 'GET'
+    }).success(function(d){
+      $scope.data[id - 1] = d;
+      if ($scope.data.filter(function(it){
+        return it;
+      }).length === 5) {
+        return $scope.context();
+      }
+    });
+  };
+  for (i$ = 1; i$ <= 5; ++i$) {
+    i = i$;
+    fetchData(i);
+  }
   $scope.$watch('jdg.cc', $scope.context);
   return $scope.$watch('jdg.cv', $scope.context);
 }));
