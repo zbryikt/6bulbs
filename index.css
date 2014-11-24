@@ -6,7 +6,8 @@ html, body {
 
 body {
   background: url(img/land-bk.png) center center no-repeat;
-  background-size: cover; }
+  background-size: cover;
+  font-size: 13px; }
 
 #hint {
   position: absolute;
