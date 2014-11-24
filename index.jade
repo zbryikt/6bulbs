@@ -100,6 +100,9 @@ html(lang="en")
           | 分享給
           br
           | 朋友吧
+          .fb-share-button(data-href="http://0media.tw/6bulbs",data-layout="button")
+          .fb-share-button(data-href="http://0media.tw/6bulbs",data-layout="button")
+          .fb-share-button(data-href="http://0media.tw/6bulbs",data-layout="button")
         #fin-share2.fin-share(ng-click="rechoose(-1)")
           | 換縣市
           br
@@ -121,3 +124,12 @@ html(lang="en")
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-52410923-1', 'auto');
       ga('send', 'pageview');
+    #fb-root
+    script.
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&appId=646775858745770&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
