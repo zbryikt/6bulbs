@@ -110,7 +110,7 @@ html(lang="en")
           br
           | 亮 {{jdg.count()}} 燈！ 
           span(ng-if="jdg.count()>=5") 不就好棒棒！
-          span(ng-if="jdg.count()<5 && jdg.count()>3") 普普通通啦～
+          span(ng-if="jdg.count()<5 && jdg.count()>=3") 普普通通啦～
           span(ng-if="jdg.count()<3") 太爛啦割掉！
     script.
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
