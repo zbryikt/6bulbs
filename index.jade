@@ -83,7 +83,9 @@ html(lang="en")
         #jg-sentr(ng-click="scoring(0)",ng-class="{'fin':stage=='fin'}")
         #jg-more(ng-class="{'shown':knowmore,'fin':stage=='fin'}",ng-click="knowmore=!!!knowmore")
       #fin(ng-class="{'inactive':stage!='fin'}")
-        #fin-pass
+        #fin-ham-l
+        #fin-ham-m 過關！
+        #fin-ham-r
         #fin-note
           | 此新聞專題企圖以青年視角整理並檢測追求連任者政見，因此在觀點選擇以及時間限制上，所列並非完整政見，若有任何建議請來信寄至
           a(href="mailto:newseforum@gmail.com") 新聞 E 論壇
@@ -93,5 +95,5 @@ html(lang="en")
           br
           | 亮 {{jdg.count()}} 燈！
         #fin-btn
-          .btn.btn-primary 回選單監督其他市長
+          .btn.btn-primary(ng-click="stage='choose'") 回選單監督其他市長
           .btn.btn-primary 分享讓更多人監督

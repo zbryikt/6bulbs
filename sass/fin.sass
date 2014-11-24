@@ -16,16 +16,36 @@
     left: -200px
     opacity: 0
     z-index: index($order, base)
-  #fin-pass
-    display: none
+  #fin-ham-l, #fin-ham-r
     position: absolute
-    top: 40px
-    left: 50%
-    margin-left: -10%
-    width: 20%
-    height: 137px
-    background: url(img/pass.png) center center no-repeat
+    top: 25%
+    width: 206px
+    height: 206px
+    margin-left: -103px
+    margin-top: -103px
+    background: url(img/hammer.png) center center no-repeat
     background-size: contain
+    left: 35%
+    @include transform(rotate(45deg))
+  #fin-ham-r
+    left: 65%
+    @include transform(rotate(-45deg))
+  #fin-ham-m
+    position: absolute
+    top: 13%
+    left: 50%
+    margin-left: -100px
+    padding-left: 20px
+    text-align: center
+    width: 200px
+    font-size: 3em
+    @media (max-width: 991px)
+      line-height: 2em
+      font-size: 2em
+    @media (max-width: 768px)
+      line-height: 1.5em
+      font-size: 1.5em
+
   #fin-ret
     position: absolute
     bottom: 20px

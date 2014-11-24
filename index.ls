@@ -55,6 +55,8 @@ angular.module \main, <[]>
     ld-b = $(\#ld-b)
     ld-h = $(\#ld-h)
     jc-h = $(\#jc-h)
+    hm-l = $(\#fin-ham-l)
+    hm-r = $(\#fin-ham-r)
     court = $(\#court)
     [w,h] = [win.width!, win.height!]
 
@@ -110,6 +112,11 @@ angular.module \main, <[]>
       $(\#jg-sent1).css sent-css
       $(\#jg-sent2).css sent-css
       $(\#jg-sent3).css sent-css
+      r2 = parseInt(r * 206 / 201)
+      r22 = parseInt(r2/2)
+      ham-css = width: "#{r2}px", height: "#{r2}px", marginLeft: "-#{r22}px", marginTop: "-#{r22}px"
+      hm-l.css ham-css
+      hm-r.css ham-css
 
 
     win.resize -> $scope.$apply -> orient-detect!

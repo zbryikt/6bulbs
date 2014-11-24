@@ -438,7 +438,7 @@ body {
     #court .bulb .inner {
       width: 120%;
       height: 120%;
-      margin: -5% -10% 0 0;
+      margin: -3% -10% 0 0;
       opacity: 0;
       -ms-transition: all 0.5s ease-out;
       -moz-transition: all 0.5s ease-out;
@@ -597,16 +597,45 @@ body {
     left: -200px;
     opacity: 0;
     z-index: 1; }
-  #fin #fin-pass {
-    display: none;
+  #fin #fin-ham-l, #fin #fin-ham-r {
     position: absolute;
-    top: 40px;
+    top: 25%;
+    width: 206px;
+    height: 206px;
+    margin-left: -103px;
+    margin-top: -103px;
+    background: url(img/hammer.png) center center no-repeat;
+    background-size: contain;
+    left: 35%;
+    -ms-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg); }
+  #fin #fin-ham-r {
+    left: 65%;
+    -ms-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+  #fin #fin-ham-m {
+    position: absolute;
+    top: 13%;
     left: 50%;
-    margin-left: -10%;
-    width: 20%;
-    height: 137px;
-    background: url(img/pass.png) center center no-repeat;
-    background-size: contain; }
+    margin-left: -100px;
+    padding-left: 20px;
+    text-align: center;
+    width: 200px;
+    font-size: 3em; }
+    @media (max-width: 991px) {
+      #fin #fin-ham-m {
+        line-height: 2em;
+        font-size: 2em; } }
+    @media (max-width: 768px) {
+      #fin #fin-ham-m {
+        line-height: 1.5em;
+        font-size: 1.5em; } }
   #fin #fin-ret {
     position: absolute;
     bottom: 20px;

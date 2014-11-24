@@ -2,7 +2,7 @@
 var x$;
 x$ = angular.module('main', []);
 x$.controller('main', ['$scope', '$http', '$timeout', '$interval'].concat(function($scope, $http, $timeout, $interval){
-  var fmt, j, i, win, ldTt, ldB, ldH, jcH, court, ref$, w, h, orientDetect;
+  var fmt, j, i, win, ldTt, ldB, ldH, jcH, hmL, hmR, court, ref$, w, h, orientDetect;
   fmt = function(it){
     return it.replace("\\n", "\n");
   };
@@ -115,10 +115,12 @@ x$.controller('main', ['$scope', '$http', '$timeout', '$interval'].concat(functi
   ldB = $('#ld-b');
   ldH = $('#ld-h');
   jcH = $('#jc-h');
+  hmL = $('#fin-ham-l');
+  hmR = $('#fin-ham-r');
   court = $('#court');
   ref$ = [win.width(), win.height()], w = ref$[0], h = ref$[1];
   orientDetect = function(check){
-    var ref$, ldSpare, smMode, hc, wc, mh, cw, ch, r, bw, bh, i$, i, a, x, y, jchw, jchh, sw, fs, sentCss;
+    var ref$, ldSpare, smMode, hc, wc, mh, cw, ch, r, bw, bh, i$, i, a, x, y, jchw, jchh, sw, fs, sentCss, r2, r22, hamCss;
     ref$ = [win.width(), win.height()], w = ref$[0], h = ref$[1];
     $scope.hint = w < h;
     ldSpare = ldTt.height() + 150 + 30;
@@ -189,7 +191,17 @@ x$.controller('main', ['$scope', '$http', '$timeout', '$interval'].concat(functi
     };
     $('#jg-sent1').css(sentCss);
     $('#jg-sent2').css(sentCss);
-    return $('#jg-sent3').css(sentCss);
+    $('#jg-sent3').css(sentCss);
+    r2 = parseInt(r * 206 / 201);
+    r22 = parseInt(r2 / 2);
+    hamCss = {
+      width: r2 + "px",
+      height: r2 + "px",
+      marginLeft: "-" + r22 + "px",
+      marginTop: "-" + r22 + "px"
+    };
+    hmL.css(hamCss);
+    return hmR.css(hamCss);
   };
   win.resize(function(){
     return $scope.$apply(function(){
