@@ -53,9 +53,9 @@ html(lang="en")
           .head(ng-class="rlt.h[4]",ng-click="rlt.c=2")
           .head(ng-class="rlt.h[5]",ng-click="rlt.c=1")
         #cs-btn
-          #cs-gl(ng-click="choosehead(-1)")
+          #cs-gl(ng-click="choosehead(1)")
           #cs-gt 選擇一個首長
-          #cs-gr(ng-click="choosehead(1)")
+          #cs-gr(ng-click="choosehead(-1)")
       #judge(ng-show="stage=='judge' || stage=='fin'")
         #court(ng-class="{'fin':stage=='fin'}")
           .inner
