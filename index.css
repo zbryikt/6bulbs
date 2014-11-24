@@ -491,6 +491,9 @@ body {
   margin-bottom: 10px;
   text-align: center; }
 #judge .sent .desc {
+  font-size: 1.3em;
+  line-height: 1.4em;
+  letter-spacing: 1px;
   white-space: pre-line; }
 @media (max-width: 991px), (max-height: 500px) {
   #judge .sent {
