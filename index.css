@@ -9,6 +9,15 @@ body {
   background-size: cover;
   font-size: 13px; }
 
+#cache img {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 0; }
+
 #hint {
   position: absolute;
   top: 0;
@@ -93,13 +102,13 @@ body {
   #land #ld-b {
     width: 150px;
     height: 150px;
-    background: url(img/go.svg) center center no-repeat;
+    background: url(img/go.png) center center no-repeat;
     background-size: contain;
     display: block;
     margin: auto;
     cursor: pointer; }
     #land #ld-b:hover {
-      background-image: url(img/go-active.svg); }
+      background-image: url(img/go-active.png); }
     #land #ld-b.mobile {
       position: absolute;
       width: 100px;
@@ -462,12 +471,7 @@ body {
       width: 120%;
       height: 120%;
       margin: -3% -10% 0 0;
-      opacity: 0;
-      -ms-transition: all 0.5s ease-out;
-      -moz-transition: all 0.5s ease-out;
-      -webkit-transition: all 0.5s ease-out;
-      -o-transition: all 0.5s ease-out;
-      transition: all 0.5s ease-out; }
+      opacity: 0; }
     #court .bulb.active {
       background-image: none; }
       #court .bulb.active .inner {
