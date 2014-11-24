@@ -96,11 +96,22 @@ html(lang="en")
           | 此新聞專題企圖以青年視角整理並檢測追求連任者政見，因此在觀點選擇以及時間限制上，所列並非完整政見，若有任何建議請來信寄至
           a(href="mailto:newseforum@gmail.com") 新聞 E 論壇
           |  。
+        #fin-share1.fin-share
+          | 分享給
+          br
+          | 朋友吧
+        #fin-share2.fin-share(ng-click="rechoose(-1)")
+          | 換縣市
+          br
+          | 再來玩
         #fin-ret
           | 我給 {{cm[5 - jdg.cc]}} 的市政六燈獎結果是
           br
-          | 亮 {{jdg.count()}} 燈！
-        #fin-btn
+          | 亮 {{jdg.count()}} 燈！ 
+          span(ng-if="jdg.count()>=5") 不就好棒棒！
+          span(ng-if="jdg.count()<5 && jdg.count()>3") 普普通通啦～
+          span(ng-if="jdg.count()<3") 太爛啦割掉！
+        //-#fin-btn
           .btn.btn-primary(ng-click="stage='choose'") 回選單監督其他市長
           .btn.btn-primary 分享讓更多人監督
     script.

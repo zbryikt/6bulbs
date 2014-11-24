@@ -82,6 +82,9 @@ x$.controller('main', ['$scope', '$http', '$timeout', '$interval'].concat(functi
       return ret;
     },
     rechoose: function(d){
+      if (d < 0) {
+        d = ($scope.rlt.c + 3) % 5 + 1;
+      }
       $scope.stage = 'choose';
       $scope.rlt.c = d;
       return $scope.jdg.cc = $scope.rlt.c;
@@ -94,10 +97,19 @@ x$.controller('main', ['$scope', '$http', '$timeout', '$interval'].concat(functi
       return $scope.jdg.cc = $scope.rlt.c;
     },
     start: function(){
+      var i;
       $scope.stage = 'judge';
       $scope.jdg.cc = $scope.rlt.c;
       $scope.jdg.cv = 0;
-      return $scope.jdg.knowmore = false;
+      $scope.jdg.knowmore = false;
+      return $scope.jdg.v[$scope.jdg.cc] = (function(){
+        var i$, results$ = [];
+        for (i$ = 0; i$ <= 5; ++i$) {
+          i = i$;
+          results$.push(1);
+        }
+        return results$;
+      }());
     }
   });
   $scope.$watch('rlt.c', function(){

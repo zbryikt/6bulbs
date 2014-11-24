@@ -37,6 +37,7 @@ angular.module \main, <[]>
         if $scope.jdg.cv == id and $scope.stage!='fin' => ret += ' active'
         ret
       rechoose: (d) ->
+        if d < 0 => d = ($scope.rlt.c + 3) % 5 + 1
         $scope.stage = 'choose'
         $scope.rlt.c = d
         $scope.jdg.cc = $scope.rlt.c
@@ -50,6 +51,7 @@ angular.module \main, <[]>
         $scope.jdg.cc = $scope.rlt.c
         $scope.jdg.cv = 0
         $scope.jdg.knowmore = false
+        $scope.jdg.v[$scope.jdg.cc] = [1 for i from 0 to 5]
     $scope.$watch 'rlt.c' ->
       $scope.rlt.h = ["p#{v + $scope.rlt.c}" for v from -1 to 4]
       $scope.rlt.b = "p#{6 - $scope.rlt.c}"

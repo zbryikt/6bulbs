@@ -31,7 +31,7 @@ body {
     -webkit-transition: opacity 0.2s linear;
     -o-transition: opacity 0.2s linear;
     transition: opacity 0.2s linear;
-    z-index: 7;
+    z-index: 8;
     opacity: 1; }
 
 #hint-inner {
@@ -45,7 +45,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 6;
+  z-index: 7;
   background: url(img/land-bk.png) #DF1E2D center center no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -127,7 +127,7 @@ body {
 
 #cs-menu {
   position: fixed;
-  z-index: 5;
+  z-index: 6;
   top: 0;
   left: 0;
   background: #000;
@@ -768,6 +768,28 @@ body {
       #fin #fin-ham-m {
         line-height: 1.5em;
         font-size: 1.5em; } }
+  #fin .fin-share {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: 140px;
+    z-index: 5;
+    background: #1C75BC;
+    padding: 10px;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    -ms-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out; }
+    #fin .fin-share:hover {
+      bottom: 25px;
+      box-shadow: 0 6px 3px rgba(0, 0, 0, 0.3); }
+  #fin #fin-share2 {
+    margin-left: 200px; }
   #fin #fin-ret {
     position: absolute;
     bottom: 20px;
@@ -796,6 +818,15 @@ body {
       display: block;
       margin-bottom: 5px; }
   @media (max-width: 991px) {
+    #fin #fin-share1 {
+      margin-left: 18%; }
+    #fin #fin-share2 {
+      margin-left: 18%;
+      -ms-transform: translate(60px, 0);
+      -moz-transform: translate(60px, 0);
+      -webkit-transform: translate(60px, 0);
+      -o-transform: translate(60px, 0);
+      transform: translate(60px, 0); }
     #fin #fin-note, #fin #fin-btn .btn {
       font-size: 9px; }
     #fin #fin-ret {

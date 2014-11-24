@@ -51,7 +51,24 @@
     @media (max-width: 768px)
       line-height: 1.5em
       font-size: 1.5em
-
+  .fin-share
+    position: absolute
+    bottom: 20px
+    left: 50%
+    margin-left: 140px
+    z-index: index($order, fin-share)
+    background: #1C75BC
+    padding: 10px
+    border-radius: 50px
+    color: #fff
+    cursor: pointer
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3)
+    @include transition(all 0.5s ease-in-out)
+    &:hover
+      bottom: 25px
+      box-shadow: 0 6px 3px rgba(0,0,0,0.3)
+  #fin-share2
+    margin-left: 200px
   #fin-ret
     position: absolute
     bottom: 20px
@@ -80,6 +97,11 @@
       display: block
       margin-bottom: 5px
   @media (max-width: 991px)
+    #fin-share1
+      margin-left: 18%
+    #fin-share2
+      margin-left: 18%
+      @include transform(translate(60px,0))
     #fin-note, #fin-btn .btn
       font-size: 9px
     #fin-ret
