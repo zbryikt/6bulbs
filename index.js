@@ -191,7 +191,13 @@ x$.controller('main', ['$scope', '$http', '$timeout', '$interval'].concat(functi
     } else {
       sw = (w - cw) / 2 - 20;
     }
-    fs = w < 991 || h < 600 ? '12px' : '1.1em';
+    if (w < 991 || h < 600) {
+      fs = '12px';
+    } else if (w <= 1280 || h < 700) {
+      fs = '14px';
+    } else {
+      fs = '1.3em';
+    }
     sentCss = {
       width: parseInt(sw) + "px",
       fontSize: fs

@@ -753,8 +753,9 @@ body {
     padding-left: 20px;
     text-align: center;
     width: 200px;
-    font-size: 3em; }
-    @media (max-width: 991px) {
+    font-size: 3em;
+    line-height: 3em; }
+    @media (max-width: 1280px) {
       #fin #fin-ham-m {
         line-height: 2em;
         font-size: 2em; } }
