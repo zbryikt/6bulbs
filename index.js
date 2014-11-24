@@ -31,7 +31,15 @@ x$.controller('main', ['$scope', '$http', '$timeout', '$interval'].concat(functi
         return results$;
       }()),
       count: function(){
-        return this.v[this.cc];
+        return this.v[this.cc].map(function(it){
+          if (it === 2) {
+            return 1;
+          } else {
+            return 0;
+          }
+        }).reduce(function(a, b){
+          return a + b;
+        }, 0);
       }
     },
     ctx: {

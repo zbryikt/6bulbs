@@ -11,7 +11,7 @@ angular.module \main, <[]>
         cc: 5
         cv: 0
         v: [[1 for i from 0 to 5] for j from 0 to 5]
-        count: -> @v[@cc]
+        count: -> @v[@cc]map(-> if it ==2 => 1 else 0)reduce(((a,b)->a+b),0)
       ctx: view: '', achieve: '', more: ''
 
       fin: -> $scope.stage = 'fin'

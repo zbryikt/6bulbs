@@ -9,6 +9,13 @@
   width: 100%
   height: 100%
   color: #000
+  opacity: 1
+  z-index: index($order, fin)
+  @include transition(all 0.5s ease-in-out)
+  &.inactive
+    left: -200px
+    opacity: 0
+    z-index: index($order, base)
   #fin-pass
     display: none
     position: absolute
@@ -22,19 +29,35 @@
   #fin-ret
     position: absolute
     bottom: 20px
-    width: 300px
+    width: 320px
     left: 50%
-    margin-left: -150px
+    margin-left: -160px
     font-size: 1.4em
     text-align: center
+    background: rgba(255,255,255,0.8)
+    box-shadow: 0 1px 1px 1px rgba(0,0,0,0.3)
+    padding: 10px
+    border-radius: 10px
+    color: #000
   #fin-note
     position: absolute
     left: 20px
     bottom: 20px
-    width: 260px
-    font-size: 0.6em
+    width: 20%
+    font-size: 12px
     color: #999
   #fin-btn
     position: absolute
     right: 20px
     bottom: 20px
+    .btn
+      display: block
+      margin-bottom: 5px
+  @media (max-width: 991px)
+    #fin-note, #fin-btn .btn
+      font-size: 9px
+    #fin-ret
+      font-size: 12px
+    #fin-ret
+      width: 40%
+      margin-left: -20%
