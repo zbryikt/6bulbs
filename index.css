@@ -103,6 +103,26 @@ body {
       position: absolute;
       width: 100px;
       height: 100px; }
+  #land #ld-brand {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 180px;
+    height: 56px;
+    background: url(img/brand.png) center center no-repeat;
+    background-size: cover; }
+    @media (max-width: 991px) {
+      #land #ld-brand {
+        width: 90px;
+        height: 28px; } }
+  #land #ld-0media {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    background: url(img/0media.png) center center no-repeat;
+    background-size: cover; }
 
 #cs-menu {
   position: fixed;
