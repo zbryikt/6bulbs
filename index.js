@@ -13,7 +13,7 @@ x$.controller('main', ['$scope', '$http', '$timeout', '$interval'].concat(functi
       h: ['0', 'p5', 'p6', 'p7', 'p8', 'p9'],
       c: 5
     },
-    cm: ['朱立倫', '吳志鴻', '胡自強', '賴清德', '陳菊'],
+    cm: ['朱立倫', '吳志揚', '胡志強', '賴清德', '陳菊'],
     jdg: {
       cc: 5,
       cv: 0,
