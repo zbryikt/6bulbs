@@ -4,7 +4,7 @@ angular.module \main, <[]>
       it.replace "\\n", "\n"
     $scope <<< do
       hint: false
-      stage: \fin #\judge
+      stage: \land #\judge
       rlt: h: <[0 p5 p6 p7 p8 p9]>, c: 5
       cm: <[朱立倫 吳志鴻 胡自強 賴清德 陳菊]>
       jdg: 
