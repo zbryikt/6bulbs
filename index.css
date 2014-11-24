@@ -659,12 +659,7 @@ body {
   cursor: pointer;
   background: url(img/more.png) 0 center no-repeat;
   background-size: cover;
-  opacity: 1;
-  -ms-animation: jg-more 1s infinite ease-out;
-  -moz-animation: jg-more 1s infinite ease-out;
-  -webkit-animation: jg-more 1s infinite ease-out;
-  -o-animation: jg-more 1s infinite ease-out;
-  animation: jg-more 1s infinite ease-out; }
+  opacity: 1; }
   #jg-more.fin {
     right: -20px;
     opacity: 0; }
