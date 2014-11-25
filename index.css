@@ -492,7 +492,8 @@ body {
     left: 50%;
     width: 40px;
     height: 60px;
-    background: url(img/bulbs.png) 0 center no-repeat;
+    background-position: 0 center;
+    background-repeat: no-repeat;
     background-size: contain; }
     #court .bulb.s0 {
       background-image: url(img/bulb0.png); }
