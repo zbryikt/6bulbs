@@ -161,7 +161,10 @@
   background: url(img/more.png) 0 center no-repeat
   background-size: cover
   opacity: 1
-  //@include animation(jg-more 1.0s infinite ease-out)
+  @media (min-width: 991px)
+    right: 30px
+    bottom: 40px
+    @include transform(scale(1.5))
   &.fin
     right: -20px
     opacity: 0
