@@ -133,7 +133,9 @@ html(lang="en")
             #bulb6.bulb(ng-class="bulbcls(5)"): .inner {{ctx.cat}}
 
         #jg-sent1.sent(ng-class="{'fin':stage=='fin'}")
-          #js1-title.title 2010年他曾經這麼說
+          #js1-title.title 
+            span(ng-if="jdg.cc==4") 2009年他曾經這麼說
+            span(ng-if="jdg.cc!=4") 2010年他曾經這麼說
           #js1-desc.desc
             | {{ ctx.view }}
         #jg-sent2.sent(ng-class="{'inactive':knowmore,'fin':stage=='fin'}")

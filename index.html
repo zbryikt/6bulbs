@@ -102,7 +102,7 @@
           </div>
         </div>
         <div id="jg-sent1" ng-class="{'fin':stage=='fin'}" class="sent">
-          <div id="js1-title" class="title">2010年他曾經這麼說</div>
+          <div id="js1-title" class="title"><span ng-if="jdg.cc==4">2009年他曾經這麼說</span><span ng-if="jdg.cc!=4">2010年他曾經這麼說</span></div>
           <div id="js1-desc" class="desc">{{ ctx.view }}</div>
         </div>
         <div id="jg-sent2" ng-class="{'inactive':knowmore,'fin':stage=='fin'}" class="sent">
