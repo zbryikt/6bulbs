@@ -133,6 +133,25 @@ body {
     height: 32px;
     background: url(img/0media.png) center center no-repeat;
     background-size: cover; }
+  #land #ld-credit {
+    position: absolute;
+    color: #fff;
+    top: 90px;
+    left: 30px;
+    width: 160px;
+    font-size: 12px;
+    line-height: 14px;
+    opacity: 0.9; }
+    @media (max-width: 991px) {
+      #land #ld-credit {
+        top: 55px;
+        left: 30px;
+        width: 120px;
+        font-size: 8px;
+        line-height: 12px; } }
+    @media (max-width: 768px) {
+      #land #ld-credit {
+        line-height: 9px; } }
 
 #cs-menu {
   position: fixed;
