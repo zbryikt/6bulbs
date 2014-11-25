@@ -602,15 +602,15 @@ body {
 
 #jg-sentl {
   left: 40%;
-  background-image: url(img/jg/sentl.png); }
+  background-image: url(img/jg-sentl.png); }
   #jg-sentl:hover {
-    background-image: url(img/jg/sentl-active.png); }
+    background-image: url(img/jg-sentl-active.png); }
 
 #jg-sentr {
   left: 60%;
-  background-image: url(img/jg/sentr.png); }
+  background-image: url(img/jg-sentr.png); }
   #jg-sentr:hover {
-    background-image: url(img/jg/sentr-active.png); }
+    background-image: url(img/jg-sentr-active.png); }
 
 @-webkit-keyframes jg-more {
   0% {
