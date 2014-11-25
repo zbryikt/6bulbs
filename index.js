@@ -65,7 +65,6 @@ x$.controller('main', ['$scope', '$http', '$timeout', '$interval'].concat(functi
     context: function(){
       var obj;
       if ($scope.data && $scope.data[5 - $scope.jdg.cc]) {
-        console.log($scope.jdg.cv);
         obj = $scope.data[5 - $scope.jdg.cc].feed.entry[$scope.jdg.cv];
         $scope.ctx.view = obj['gsx$政見']['$t'];
         $scope.ctx.achieve = obj['gsx$政績']['$t'];

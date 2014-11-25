@@ -25,7 +25,6 @@ angular.module \main, <[]>
         $scope.jdg.cv <?= 5
         $scope.knowmore = false
       context: -> if $scope.data and $scope.data[5 - $scope.jdg.cc] =>
-        console.log $scope.jdg.cv
         obj = $scope.data[5 - $scope.jdg.cc].feed.entry[$scope.jdg.cv]
         $scope.ctx.view = obj['gsx$政見']['$t']
         $scope.ctx.achieve = obj['gsx$政績']['$t']
