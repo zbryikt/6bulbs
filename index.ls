@@ -114,7 +114,8 @@ angular.module \main, <[]>
         sw = (w - (ch * 547 / 775)) / 2 - 20
       else
         sw = (w - cw) / 2 - 20
-      if h < 560 => fs = \10px
+      if h < 480 => fs = \7px
+      else if h < 560 => fs = \10px
       else if w < 991 or h < 600 => fs = \12px 
       else if w <= 1280 or h < 700 => fs = \14px
       else fs = \1.3em

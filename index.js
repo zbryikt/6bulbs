@@ -202,7 +202,9 @@ x$.controller('main', ['$scope', '$http', '$timeout', '$interval'].concat(functi
     } else {
       sw = (w - cw) / 2 - 20;
     }
-    if (h < 560) {
+    if (h < 480) {
+      fs = '7px';
+    } else if (h < 560) {
       fs = '10px';
     } else if (w < 991 || h < 600) {
       fs = '12px';
